@@ -1,8 +1,31 @@
-# React + Vite
+# Hospital Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About the Project
 
-Currently, two official plugins are available:
+The hospital platform is a comprehensive system designed to streamline healthcare services, improve patient care, and enhance overall hospital management. The platform includes a user-friendly interface for both hospital staff and patients, offering a range of features to facilitate efficient healthcare delivery.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Link
+
+## Built With
+
+![image](https://devtechnosys.com/insights/wp-content/uploads/2022/12/Mern-Stack.png)
+
+## Getting Started
+
+## Features
+
+### User Management
+
+### Service and Doctor Browsing
+
+### Appointment Booking
+
+## Contact
+
+Tasneem Ali - [LinkedIn](https://www.linkedin.com/in/tasneem-jameel-ali/) | tasneem.jameel9@gmail.com
+
+Zahraa Ali - [LinkedIn]() | zahraaalihasan279@gmail.com
+
+Shaikha Ebrahim - [LinkedIn]() | shaikha.s.ebrahim@gmail.com
+
+## Acknowledgments
