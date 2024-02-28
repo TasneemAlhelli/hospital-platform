@@ -1,5 +1,3 @@
-# hospital-platform
-
 # Hospital Platform
 
 ## About the Project
