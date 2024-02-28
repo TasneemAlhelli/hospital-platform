@@ -15,7 +15,7 @@ The hospital platform is a comprehensive system designed to streamline healthcar
 1. Clone the repository
 
 ```sh
-git clone git@github.com:TasneemAlhelli/education-platform.git
+git git@github.com:TasneemAlhelli/hospital-platform.git
 ```
 
 2. Install NPM pacakges
