@@ -1,17 +1,31 @@
+import { Link } from 'react-router-dom'
+
 const Home = () => {
   return (
     <header>
       <div>
         <ul>
-          <div className="logoPosition">
-            <img className="logo" src="/image/red-cross.png" />
-          </div>
+          <Link to="/">
+            <div className="logoPosition">
+              <img className="logo" src="/image/red-cross.png" />
+            </div>
+          </Link>
+
           <div className="pstn">
-          <li>About Us</li>
-          <li>Services</li>
-          <li>Doctors</li>
-          <li>About Us</li>
-          <li>Login</li>
+            <Link to="/services">
+              <li>Services</li>
+            </Link>
+            <Link to="/doctors">
+              <li>Doctors</li>
+            </Link>
+
+            <Link to="/login">
+              <li>Login</li>
+            </Link>
+
+            <Link to="/profile">
+              <li>profile</li>
+            </Link>
           </div>
         </ul>
       </div>
