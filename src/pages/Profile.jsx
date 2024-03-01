@@ -20,13 +20,13 @@ const Profile = () => {
     const status = 'complated'
     const data = await getAppointmentsStatus(userId, status)
     //setAppoitments(data)
-    console.log('appointment', data)
+    console.log('complated appointment', data)
   }
   const scheduleAppointments = async () => {
     const status = 'schedule'
     const data = await getAppointmentsStatus(userId, status)
     //setAppoitments(data)
-    console.log('appointment', data)
+    console.log('schedule appointment', data)
   }
   const userInfo = async () => {
     const data = await getUserInfo(userId)
