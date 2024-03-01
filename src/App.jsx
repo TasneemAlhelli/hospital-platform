@@ -20,28 +20,32 @@ function App() {
       <header>
         <Nav />
       </header>
+
       <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="c" element={<Appointment />} />
+          <Route path="/services/:id" element={<Service />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/doctors" element={<Doctors />} />
+
+          {/* <Route path="/doctors/:doctorId" element={<DoctorDetails />} /> */}
+          <Route path="/DoctorDetails" element={<DoctorDetails />} />
+
+          {/* <Route path="/profile/:userrId/edit" element={<EditProfile />} /> */}
+          <Route path="/profile/edit" element={<EditProfile />} />
+
+          {/* <Route path="/profile/:userId" element={<Profile />} /> */}
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </main>
+
+      <footer>
         {/* <Home /> */}
         <Footer />
-      </main>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="c" element={<Appointment />} />
-        <Route path="/services/:serviceId/doctors" element={<Service />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/doctors" element={<Doctors />} />
-
-        {/* <Route path="/doctors/:doctorId" element={<DoctorDetails />} /> */}
-        <Route path="/DoctorDetails" element={<DoctorDetails />} />
-
-        {/* <Route path="/profile/:userrId/edit" element={<EditProfile />} /> */}
-        <Route path="/profile/edit" element={<EditProfile />} />
-
-        {/* <Route path="/profile/:userId" element={<Profile />} /> */}
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+      </footer>
     </div>
   )
 }
