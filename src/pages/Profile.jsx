@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getAppointments, getUserInfo } from '../services/appointments'
 import { useState, useEffect } from 'react'
 
@@ -25,6 +25,9 @@ const Profile = () => {
   return (
     <div>
       <h1>Profile</h1>
+      <Link to="/profile/edit">
+        <button>Edit prfile :</button>
+      </Link>
     </div>
   )
 }

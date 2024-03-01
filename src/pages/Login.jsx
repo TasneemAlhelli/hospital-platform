@@ -5,7 +5,7 @@ const Login = () => {
     <div>
       <h1>Login </h1>
       <Link to="/register">
-        <button>register</button>
+        if you dont have account :<button>register</button>
       </Link>
     </div>
   )

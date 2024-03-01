@@ -5,9 +5,12 @@ const Home = () => {
     <header>
       <div>
         <ul>
-          <div className="logoPosition">
-            <img className="logo" src="/image/red-cross.png" />
-          </div>
+          <Link to="/">
+            <div className="logoPosition">
+              <img className="logo" src="/image/red-cross.png" />
+            </div>
+          </Link>
+
           <div className="pstn">
             <Link to="/services">
               <li>Services</li>
@@ -19,7 +22,10 @@ const Home = () => {
             <Link to="/login">
               <li>Login</li>
             </Link>
-            <li>Profile</li>
+
+            <Link to="/profile">
+              <li>profile</li>
+            </Link>
           </div>
         </ul>
       </div>
