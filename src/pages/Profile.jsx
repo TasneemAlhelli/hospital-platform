@@ -1,5 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
-import { getAppointments, getUserInfo } from '../services/appointments'
+import {
+  getAppointments,
+  getUserInfo,
+  getAppointmentsStatus
+} from '../services/appointments'
 import { useState, useEffect } from 'react'
 
 const Profile = () => {
@@ -12,7 +16,18 @@ const Profile = () => {
     //setAppoitments(data)
     console.log('appointment', data)
   }
-
+  const complatedAppointments = async () => {
+    const status = 'complated'
+    const data = await getAppointmentsStatus(userId, status)
+    //setAppoitments(data)
+    console.log('appointment', data)
+  }
+  const scheduleAppointments = async () => {
+    const status = 'schedule'
+    const data = await getAppointmentsStatus(userId, status)
+    //setAppoitments(data)
+    console.log('appointment', data)
+  }
   const userInfo = async () => {
     const data = await getUserInfo(userId)
     //setProfile(data)
@@ -26,7 +41,10 @@ const Profile = () => {
   useEffect(() => {
     userInfo()
     allAppointments()
+    complatedAppointments()
+    scheduleAppointments()
   }, [])
+
   return (
     <div>
       <h1>Profile</h1>
