@@ -8,6 +8,13 @@ export const getUserInfo = async (userId) => {
     console.log(error)
   }
 }
+export const updateUserInfo = async () => {
+  try {
+    const res = await Client.put(`/user/${userId}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
 export const getAppointments = async (userId) => {
   try {
     const res = await Client.get(`/user/${userId}/appointments`)
@@ -16,7 +23,14 @@ export const getAppointments = async (userId) => {
     console.log(error)
   }
 }
-
+export const getAppointmentsStatus = async (userId, status) => {
+  try {
+    const res = await Client.get(`/user/${userId}/appointments/${status}`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
 export const addAppointment = async () => {
   try {
     const res = await Client.post('/user/id/appointment')
