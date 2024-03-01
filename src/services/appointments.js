@@ -8,6 +8,13 @@ export const getUserInfo = async (userId) => {
     console.log(error)
   }
 }
+export const updateUserInfo = async () => {
+  try {
+    const res = await Client.put(`/user/${userId}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
 export const getAppointments = async (userId) => {
   try {
     const res = await Client.get(`/user/${userId}/appointments`)
