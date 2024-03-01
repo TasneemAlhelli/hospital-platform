@@ -152,14 +152,15 @@ h2 {
   border: 1px solid grey;
   justify-content: center;
   align-items: center;
-  background-color: #3BB49C;
+  background-color: #3bb49c;
 }
 
 .social-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px 10px;
+  /* padding: 15px 10px; */
+  padding-top: 50px;
   border-radius: 5em;
 }
 
@@ -174,4 +175,76 @@ h2 {
   background-color: #fff;
   box-shadow: 0px 0px 4px #00000027;
   transition: 0.3s;
+}
+
+.card {
+  width: 210px;
+  height: 210px;
+  background: #c4e2da;
+  border-radius: 12px;
+  box-shadow: 0px 0px 30px #0000001f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition-duration: 0.5s;
+}
+
+.profileImage {
+  /* margin-top: 20px; */
+  width: 100px;
+  height: 100px;
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 5px 10px 20px #00000015;
+  margin: 20px 0px 0px;
+}
+
+.textContainer {
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name {
+  font-size: 0.9em;
+  font-weight: 600;
+  /* color: white; */
+  color: #4c5a67;
+  letter-spacing: 0.5px;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.profile {
+  font-size: 0.84em;
+  color: rgb(194, 194, 194);
+  letter-spacing: 0.2px;
+}
+
+.card:hover {
+  background-color: #ececec;
+  transition-duration: 0.5s;
+}
+
+.servSection {
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 30px;
+}
+
+.servicesTitle {
+  color: #0a987b;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
 }

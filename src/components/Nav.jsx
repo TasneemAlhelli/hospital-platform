@@ -7,11 +7,10 @@ const Home = () => {
             <img className="logo" src="/image/red-cross.png" />
           </div>
           <div className="pstn">
-          <li>About Us</li>
-          <li>Services</li>
-          <li>Doctors</li>
-          <li>About Us</li>
-          <li>Login</li>
+            <li>About Us</li>
+            <li>Services</li>
+            <li>Doctors</li>
+            <li>Login</li>
           </div>
         </ul>
       </div>
