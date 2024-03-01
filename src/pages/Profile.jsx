@@ -17,6 +17,11 @@ const Profile = () => {
     const data = await getUserInfo(userId)
     //setProfile(data)
     console.log('user data', data)
+    let currentDate = new Date()
+    let birthDate = data.birthDate
+    let timeDiff = currentDate.getTime() - birthDate.getTime()
+    let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
+    console.log('Age:', age)
   }
   useEffect(() => {
     userInfo()
