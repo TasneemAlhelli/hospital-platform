@@ -146,3 +146,32 @@ h2 {
   justify-content: flex-end;
   align-items: flex-start;
 }
+
+.footerContainer {
+  height: 30vh;
+  border: 1px solid grey;
+  justify-content: center;
+  align-items: center;
+  background-color: #3BB49C;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 10px;
+  border-radius: 5em;
+}
+
+.social-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px #00000027;
+  transition: 0.3s;
+}

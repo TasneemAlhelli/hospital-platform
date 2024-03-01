@@ -2,7 +2,7 @@ const InterestedServices = () => {
   return (
     <div>
       <section>
-        <h1>hdjk</h1>
+        <h1>Services</h1>
         </section>
     </div>
   )
