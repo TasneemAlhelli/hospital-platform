@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getService } from '../services/services'
+import Doctor from '../components/Doctor'
 
 const Service = () => {
   let { id } = useParams()
@@ -9,7 +10,6 @@ const Service = () => {
     const getOneService = async (id) => {
       const service = await getService(id)
       setService(service)
-      console.log(service)
     }
     getOneService(id)
   }, [])
@@ -23,13 +23,7 @@ const Service = () => {
         {service.doctors
           ? service.doctors.map((doctor) => (
               <div key={doctor._id}>
-                <Link to={`/doctor-details/${doctor._id}`}>
-                  <img src={doctor.inage} alt="" />
-                  <h5>{doctor.name}</h5>
-                  <Link to="/book-an-appointment">
-                    <button>Book Appointment</button>
-                  </Link>
-                </Link>
+                <Doctor doctor={doctor} />
               </div>
             ))
           : null}
