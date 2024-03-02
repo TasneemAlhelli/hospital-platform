@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getService } from '../services/services'
 
 const Service = () => {
@@ -9,6 +9,7 @@ const Service = () => {
     const getOneService = async (id) => {
       const service = await getService(id)
       setService(service)
+      console.log(service)
     }
     getOneService(id)
   }, [])
@@ -18,7 +19,20 @@ const Service = () => {
       <p>{service.description}</p>
 
       <section>
-        {/* doctors */}
+        <h2>Doctors</h2>
+        {service.doctors
+          ? service.doctors.map((doctor) => (
+              <div key={doctor._id}>
+                <Link to={`/doctor-details/${doctor._id}`}>
+                  <img src={doctor.inage} alt="" />
+                  <h5>{doctor.name}</h5>
+                  <Link to="/book-an-appointment">
+                    <button>Book Appointment</button>
+                  </Link>
+                </Link>
+              </div>
+            ))
+          : null}
       </section>
     </div>
   )
