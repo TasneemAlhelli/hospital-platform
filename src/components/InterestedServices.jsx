@@ -1,5 +1,5 @@
 import { getInterestedServices } from '../services/services'
-
+import { useState, useEffect } from 'react'
 const InterestedServices = () => {
   const [interestedServices, setInterestedServices] = useState([])
 

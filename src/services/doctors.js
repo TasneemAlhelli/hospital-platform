@@ -17,3 +17,12 @@ export const getDoctor = async (doctorId) => {
     console.log(error)
   }
 }
+
+export const addDoctor = async (doctor) => {
+  try {
+    const res = await Client.post('/doctors', doctor)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
