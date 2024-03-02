@@ -10,9 +10,8 @@ const AddDoctor = () => {
     gender: ''
   }
   const [doctor, setDoctor] = useState(initial)
-  const [selectedValue, setSelectedValue] = useState(doctor.gender)
-
   const [services, setServices] = useState([])
+
   useEffect(() => {
     const getAllServices = async () => {
       const services = await getServices()

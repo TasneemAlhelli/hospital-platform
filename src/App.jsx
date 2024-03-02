@@ -15,6 +15,7 @@ import DoctorDetails from './pages/DoctorDetails'
 import EditProfile from './pages/EditProfile'
 import Profile from './pages/Profile'
 import AddDoctor from './pages/AddDoctor'
+import AddService from './pages/AddService'
 function App() {
   return (
     <div>
@@ -39,6 +40,7 @@ function App() {
           {/* <Route path="/profile/:userId" element={<Profile />} /> */}
           <Route path="/profile" element={<Profile />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
+          <Route path="/add-service" element={<AddService />} />
         </Routes>
       </main>
 
