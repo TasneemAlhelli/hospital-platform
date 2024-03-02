@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const Home = () => {
   return (
@@ -12,18 +12,30 @@ const Home = () => {
           </Link>
 
           <div className="pstn">
-            <Link to="/services">
+            <Link
+              to="/services"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
               <li>Services</li>
             </Link>
-            <Link to="/doctors">
+            <Link
+              to="/doctors"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
               <li>Doctors</li>
             </Link>
 
-            <Link to="/login">
+            <Link
+              to="/login"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
               <li>Login</li>
             </Link>
 
-            <Link to="/profile">
+            <Link
+              to="/profile"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
               <li>profile</li>
             </Link>
           </div>
