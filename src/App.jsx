@@ -19,7 +19,9 @@ import AddService from './pages/AddService'
 function App() {
   return (
     <div>
-      <header>{/* <Nav /> */}</header>
+      <header>
+        <Nav />
+      </header>
 
       <main>
         <Routes>
