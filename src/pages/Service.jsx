@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getService } from '../services/services'
+import Doctor from '../components/Doctor'
 
 const Service = () => {
   let { id } = useParams()
@@ -18,7 +19,14 @@ const Service = () => {
       <p>{service.description}</p>
 
       <section>
-        {/* doctors */}
+        <h2>Doctors</h2>
+        {service.doctors
+          ? service.doctors.map((doctor) => (
+              <div key={doctor._id}>
+                <Doctor doctor={doctor} />
+              </div>
+            ))
+          : null}
       </section>
     </div>
   )

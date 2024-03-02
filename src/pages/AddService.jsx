@@ -13,7 +13,6 @@ const AddService = () => {
     'mental health conditions',
     'other'
   ]
-
   const [service, setService] = useState([])
 
   const handleChange = (event) => {
@@ -23,7 +22,7 @@ const AddService = () => {
   const handelSubmit = (event) => {
     event.preventDefault()
     console.log('event', event)
-
+    console.log('service', service)
     addService(service)
   }
   return (

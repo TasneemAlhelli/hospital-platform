@@ -27,9 +27,9 @@ export const getService = async (serviceId) => {
   }
 }
 
-export const addService = async () => {
+export const addService = async (service) => {
   try {
-    const res = await Client.post(`/services`)
+    const res = await Client.post(`/services`, service)
     return res.data
   } catch (error) {
     console.log(error)

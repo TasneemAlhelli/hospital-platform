@@ -26,3 +26,12 @@ export const addDoctor = async (doctor) => {
     console.log(error)
   }
 }
+
+export const getDoctorSlot = async (doctorId) => {
+  try {
+    const res = await Client.get(`/doctors/${doctorId}/slot`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
