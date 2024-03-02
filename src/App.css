@@ -16,6 +16,7 @@ ul {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  text-decoration: none;
 }
 
 li {
@@ -28,6 +29,7 @@ li {
 
 li:hover {
   background-color: #0a987b;
+  height: 26px;
 }
 
 img {
@@ -178,8 +180,8 @@ h2 {
 }
 
 .card {
-  width: 210px;
-  height: 210px;
+  width: 230px;
+  height: 260px;
   background: #c4e2da;
   border-radius: 12px;
   box-shadow: 0px 0px 30px #0000001f;
@@ -191,10 +193,8 @@ h2 {
 }
 
 .profileImage {
-  /* margin-top: 20px; */
   width: 100px;
   height: 100px;
-  padding-top: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,31 +202,28 @@ h2 {
   background-color: #fff;
   box-shadow: 5px 10px 20px #00000015;
   margin: 20px 0px 0px;
+  /* background-image: url("doc1.jpg"); */
 }
 
 .textContainer {
   width: 100%;
   text-align: left;
-  padding: 20px;
-  display: flex;
   flex-direction: column;
-  gap: 10px;
+  text-align: center;
 }
 
 .name {
   font-size: 0.9em;
   font-weight: 600;
-  /* color: white; */
   color: #4c5a67;
   letter-spacing: 0.5px;
-  text-align: center;
   font-family: "Lucida Sans", sans-serif;
 }
 
-.profile {
-  font-size: 0.84em;
-  color: rgb(194, 194, 194);
-  letter-spacing: 0.2px;
+.specialization {
+  color: #4c5a67bd;
+  font-family: "Lucida Sans", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .card:hover {
@@ -235,16 +232,116 @@ h2 {
 }
 
 .servSection {
-  display: flex;
-  justify-content: space-between;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
   padding: 30px;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 30px;
 }
 
-.servicesTitle {
+.servCard {
+  width: 200px;
+  height: 180px;
+  background: #c4e2da;
+  border-radius: 12px;
+  box-shadow: 0px 0px 30px #0000001f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition-duration: 0.5s;
+}
+
+.servProfileImage {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 5px 10px 20px #00000015;
+  margin: 20px 0px 0px;
+  /* background-image: url("doc1.jpg"); */
+}
+
+.servTextContainer {
+  width: 100%;
+  text-align: left;
+  flex-direction: column;
+  text-align: center;
+}
+
+.servName {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #4c5a67;
+  letter-spacing: 0.5px;
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.servCard:hover {
+  background-color: #ececec;
+  transition-duration: 0.5s;
+}
+
+.servTitle {
   color: #0a987b;
+  padding: 20px;
   text-align: center;
   font-family: "Lucida Sans", sans-serif;
 }
+
+.title {
+  color: #0a987b;
+  padding-top: 60px;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.DocSection {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  gap: 30px;
+}
+
+.moreDetailButton {
+  background-color: #ffffff;
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  color: #0a987b;
+  font-family: "Lucida Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px;
+  text-align: center;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+/* .moreDetailButton:hover {
+  background-color: #c4e2da;
+}
+
+.moreDetailButton:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.1);
+  outline-offset: 2px;
+}
+
+.moreDetailButton:focus-visible {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+} */
