@@ -15,18 +15,18 @@ const Service = () => {
   }, [])
   return (
     <div>
-      <h1>{service.name} </h1>
+      <h1>{service.name}</h1>
       <p>{service.description}</p>
 
       <section>
-        <h2>Doctors</h2>
-        {service.doctors
-          ? service.doctors.map((doctor) => (
-              <div key={doctor._id}>
-                <Doctor doctor={doctor} />
-              </div>
-            ))
-          : null}
+        <h1 className="title">Doctors</h1>
+        <section className="DocSection">
+          {service.doctors
+            ? service.doctors.map((doctor) => (
+                <Doctor key={doctor._id} doctor={doctor} />
+              ))
+            : null}
+        </section>
       </section>
     </div>
   )
