@@ -26,3 +26,12 @@ export const getService = async (serviceId) => {
     console.log(error)
   }
 }
+
+export const addService = async () => {
+  try {
+    const res = await Client.post(`/services`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}

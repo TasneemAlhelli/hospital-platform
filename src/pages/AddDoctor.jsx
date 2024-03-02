@@ -1,6 +1,5 @@
 import { addDoctor } from '../services/doctors'
 import { getServices } from '../services/services'
-
 import { useState, useEffect } from 'react'
 
 const AddDoctor = () => {

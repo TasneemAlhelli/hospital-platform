@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { addService } from '../services/services'
 
 const AddService = () => {
   const options = [
@@ -16,14 +17,14 @@ const AddService = () => {
   const [service, setService] = useState([])
 
   const handleChange = (event) => {
-    setService({ ...doctor, [event.target.id]: event.target.value })
+    setService({ ...service, [event.target.id]: event.target.value })
   }
 
   const handelSubmit = (event) => {
     event.preventDefault()
     console.log('event', event)
 
-    // addService(doctor)
+    addService(service)
   }
   return (
     <div>
