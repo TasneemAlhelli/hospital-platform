@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 const Doctor = ({ doctor }) => {
   return (
-    <Link to={`/doctor-details/${doctor._id}`}>
+    <Link to={`/doctor-details/${doctor._id}`} style={{ color: "inherit", textDecoration: "inherit" }}>
       <div className="card">
         <div className="profileImage">
           <img src={doctor.image} alt={doctor.name} />
