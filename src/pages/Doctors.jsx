@@ -11,27 +11,29 @@ const Doctors = () => {
   const [doctors, setDoctors] = useState([])
   const [searched, toggleSearched] = useState(false)
   const [doctorSelectedDisable, setDoctorSelectedDisable] = useState(true)
+  const [selectedDoctor, setSelectedDoctor] = useState('')
+  const [selectedService, setSelectedService] = useState('')
+
   const handleChangeService = async () => {
+    setSelectedService(event.target.value)
     setDoctorSelectedDisable(false)
     const DoctorsByService = await getService(event.target.value)
-    console.log('Service', DoctorsByService)
     setDoctors(DoctorsByService.doctors)
-    console.log('Doctors', DoctorsByService.doctors)
   }
   const handleChangedoctor = async () => {
-    console.log('hiiiii', event.target.value)
+    setSelectedDoctor(event.target.value)
     if (event.target.value === 'allDoctor') {
       setSerachResualt(doctors)
-      console.log('doctor', doctors)
     } else {
-      const selectedDoctor = await getDoctor(event.target.value)
-      setSerachResualt(selectedDoctor)
-      console.log('doctor', selectedDoctor)
+      setSerachResualt(await getDoctor(event.target.value))
     }
     toggleSearched(true)
   }
   const handelClick = () => {
+    setDoctorSelectedDisable(true)
     toggleSearched(false)
+    setSelectedService('')
+    setSelectedDoctor('')
   }
   useEffect(() => {
     const getAllServices = async () => {
@@ -45,8 +47,12 @@ const Doctors = () => {
     <div>
       <h1 className="title">Our Doctors</h1>
 
-      <select id="service" onChange={handleChangeService}>
-        <option selected disabled>
+      <select
+        id="service"
+        onChange={handleChangeService}
+        value={selectedService}
+      >
+        <option selected disabled value="">
           Select Service
         </option>
         {services.map((service) => (
@@ -59,8 +65,9 @@ const Doctors = () => {
         id="doctor"
         onChange={handleChangedoctor}
         disabled={doctorSelectedDisable}
+        value={selectedDoctor}
       >
-        <option selected disabled>
+        <option selected disabled value="">
           Select Doctor
         </option>
         <option value="allDoctor">All Doctor</option>
