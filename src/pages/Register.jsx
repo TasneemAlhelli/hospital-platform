@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { RegisterUser } from '../services/auth'
-import e from 'cors'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
+  let navigate = useNavigate()
+
   const initialState = {
     name: '',
     email: '',
@@ -25,15 +27,17 @@ const Register = () => {
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.id]: event.target.value })
   }
-  const handelChange = async (event) => {
+  const handelSubmit = async (event) => {
+    console.log(formValues)
     event.preventDefault()
     await RegisterUser(formValues)
+    navigate('/')
   }
   return (
     <div className="signUpSection">
       <div className="signUp-form-container">
         <p className="title">Create account</p>
-        <form className="form">
+        <form className="form" onSubmit={handelSubmit}>
           <input
             type="text"
             className="input"
@@ -95,7 +99,6 @@ const Register = () => {
             id="password"
             onChange={handleChange}
             value={formValues.password}
-
           />
           <input
             type="password"
@@ -104,7 +107,6 @@ const Register = () => {
             id="confirmPassword"
             onChange={handleChange}
             value={formValues.confirmPassword}
-
           />
           <button className="form-btn" type="submit">
             Create account
