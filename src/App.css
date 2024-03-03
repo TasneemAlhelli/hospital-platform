@@ -37,6 +37,10 @@ img {
   width: 50px;
 }
 
+.logo {
+  width: 120px;
+}
+
 .logoPosition {
   float: left;
 }
