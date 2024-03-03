@@ -46,8 +46,9 @@ const Appointment = () => {
       setdoctors(DoctorsByService.doctors)
       setFormValues({
         ...formValues,
-        ...resetDate,
-        ...resetTime,
+        date: '',
+        time: '',
+        doctor: '',
         [event.target.id]: event.target.value
       })
     } else if (event.target.id === 'doctor') {
