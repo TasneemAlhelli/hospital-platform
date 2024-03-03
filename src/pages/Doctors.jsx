@@ -1,166 +1,34 @@
-import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { getServices } from '../services/services'
+import Doctor from '../components/Doctor'
 
 const Doctors = () => {
+  const [services, setServices] = useState([])
+
+  useEffect(() => {
+    const getAllServices = async () => {
+      const services = await getServices()
+      setServices(services)
+    }
+    getAllServices()
+  }, [])
+
   return (
     <div>
       <h1 className="title">Our Doctors</h1>
-      <section className="DocSection">
-        <div className="card">
-          <div className="profileImage">
-            <img src="/public/image/doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <div className="profileImage">
-            <img src="doc1.jpg"></img>
-          </div>
-          <div className="textContainer">
-            <p className="name">NAME</p>
-            <p className="specialization">specialization</p>
-          </div>
-          <Link to="/DoctorDetails">
-            <button className="moreDetailButton">More Details</button>
-          </Link>
-        </div>
-      </section>
+      {services
+        ? services.map((service) => (
+            <section key={service._id}>
+              <h1 className="title">{service.name}</h1>
+              <section className="DocSection">
+                {service.doctors.map((doctor) => (
+                  <Doctor key={doctor._id} doctor={doctor} />
+                ))}
+              </section>
+            </section>
+          ))
+        : null}
     </div>
   )
 }
