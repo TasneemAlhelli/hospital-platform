@@ -17,11 +17,12 @@ import Profile from './pages/Profile'
 import AddDoctor from './pages/AddDoctor'
 import AddService from './pages/AddService'
 import { useState, useEffect } from 'react'
+import { CheckSesion } from './services/auth'
 
 function App() {
   const [user, setUser] = useState({})
   const checkToken = async () => {
-    const user = await CheckSession()
+    const user = await CheckSesion()
     setUser(user)
   }
   useEffect(() => {
