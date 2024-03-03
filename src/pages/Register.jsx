@@ -1,7 +1,6 @@
 const Register = () => {
   return (
     <div className="signUpSection">
-      {/* <h1>Register </h1> */}
       <div className="signUp-form-container">
         <p className="title">Create account</p>
         <div className="form">
