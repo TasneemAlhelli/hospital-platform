@@ -12,19 +12,19 @@ const Profile = () => {
   const [profile, setProfile] = useState({})
 
   const allAppointments = async () => {
-    const data = await getAppointments(userId)
+    const data = await getAppointments()
     //setAppoitments(data)
-    console.log('appointment', data)
+    console.log('appointments', data)
   }
   const complatedAppointments = async () => {
-    const status = 'complated'
-    const data = await getAppointmentsStatus(userId, status)
+    const status = 'completed'
+    const data = await getAppointmentsStatus(status)
     //setAppoitments(data)
     console.log('complated appointment', data)
   }
   const scheduleAppointments = async () => {
     const status = 'schedule'
-    const data = await getAppointmentsStatus(userId, status)
+    const data = await getAppointmentsStatus(status)
     //setAppoitments(data)
     console.log('schedule appointment', data)
   }
