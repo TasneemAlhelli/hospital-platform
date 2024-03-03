@@ -30,20 +30,32 @@ const Appointment = () => {
   return (
     <div>
       <h1>book an Appointment</h1>
-      <select id="service" onChange={handleChangeService}>
-        {services.map((service, index) => (
-          <option key={index} value={service._id}>
-            {service.name}
-          </option>
-        ))}
-      </select>
-      <select id="doctor" onChange={handleChangeDoctor}>
-        {doctors.map((doctor, index) => (
-          <option key={index} value={doctor._id}>
-            {doctor.name}
-          </option>
-        ))}
-      </select>
+      <form>
+        <select id="service" onChange={handleChangeService}>
+          {services.map((service, index) => (
+            <option key={index} value={service._id}>
+              {service.name}
+            </option>
+          ))}
+        </select>
+        <select id="doctor" onChange={handleChangeDoctor}>
+          {doctors.map((doctor, index) => (
+            <option key={index} value={doctor._id}>
+              {doctor.name}
+            </option>
+          ))}
+        </select>
+        <input type="date"></input>
+        <select>
+          <option>9:00</option>
+          <option>9:20</option>
+          <option>9:40</option>
+          <option>10:00</option>
+          <option>10:20</option>
+          <option>10:40</option>
+        </select>
+        <button>Book Appointment</button>
+      </form>
     </div>
   )
 }
