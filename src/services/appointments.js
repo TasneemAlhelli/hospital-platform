@@ -31,9 +31,10 @@ export const getAppointmentsStatus = async (userId, status) => {
     console.log(error)
   }
 }
-export const addAppointment = async () => {
+export const addAppointment = async (data) => {
   try {
-    const res = await Client.post('/user/id/appointment')
+    const res = await Client.post('/user/appointment', data)
+    return res.data
   } catch (error) {
     console.log(error)
   }
