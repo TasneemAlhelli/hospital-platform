@@ -2,21 +2,26 @@ const Register = () => {
   return (
     <div className="signUpSection">
       {/* <h1>Register </h1> */}
-      <div class="signUp-form-container">
-        <p class="title">Create account</p>
-        <div class="form">
-          <input type="text" class="input" placeholder="Name" />
-          <input type="email" class="input" placeholder="Email" />
-          <input type="password" class="input" placeholder="Password" />
-          <input type="password" class="input" placeholder="Confirm Password" />
-          <button class="form-btn">Create account</button>
+      <div className="signUp-form-container">
+        <p className="title">Create account</p>
+        <div className="form">
+          <input type="text" className="input" placeholder="Name" />
+          <input type="email" className="input" placeholder="Email" />
+          <input type="password" className="input" placeholder="Password" />
+          <input
+            type="password"
+            className="input"
+            placeholder="Confirm Password"
+          />
+          <button className="form-btn">Create account</button>
         </div>
-        <p class="sign-up-label">
-          Already have an account?<span class="sign-up-link">Log in</span>
+        <p className="sign-up-label">
+          Already have an account?<span className="sign-up-link">Log in</span>
         </p>
-        <div class="buttons-container">
-          <div class="google-login-button">
-          <svg className="google-icon"
+        <div className="buttons-container">
+          <div className="google-login-button">
+            <svg
+              className="google-icon"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"

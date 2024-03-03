@@ -14,17 +14,37 @@ import Doctors from './pages/Doctors'
 import DoctorDetails from './pages/DoctorDetails'
 import EditProfile from './pages/EditProfile'
 import Profile from './pages/Profile'
+import AddDoctor from './pages/AddDoctor'
+import AddService from './pages/AddService'
+import { useState, useEffect } from 'react'
+
 function App() {
+  const [user, setUser] = useState({})
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
   return (
     <div>
       <header>
-        <Nav />
+        <Nav user={user} handleLogOut={handleLogOut} />
       </header>
 
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/book-an-appointment" element={<Appointment />} />
           <Route path="/services/:id" element={<Service />} />
@@ -39,6 +59,8 @@ function App() {
 
           {/* <Route path="/profile/:userId" element={<Profile />} /> */}
           <Route path="/profile" element={<Profile />} />
+          <Route path="/add-doctor" element={<AddDoctor />} />
+          <Route path="/add-service" element={<AddService />} />
         </Routes>
       </main>
 

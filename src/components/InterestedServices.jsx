@@ -1,7 +1,20 @@
+import { getInterestedServices } from '../services/services'
+import { useState, useEffect } from 'react'
 const InterestedServices = () => {
+  const [interestedServices, setInterestedServices] = useState([])
+
+  useEffect(() => {
+    getAllServices()
+  }, [])
+
+  const getAllServices = async () => {
+    const services = await getInterestedServices()
+    setInterestedServices(services)
+  }
+
   return (
     <div>
-        <h1 className="servTitle">Services</h1>
+      <h1 className="servTitle">Services</h1>
       <section className="servSection">
         <div className="servCard">
           <div className="servProfileImage">

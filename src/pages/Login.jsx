@@ -1,32 +1,70 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { LoginUser } from '../services/auth'
 
-const Login = () => {
+const Login = ({ setUser }) => {
+  let navigate = useNavigate()
+  const [formValues, setFormValues] = useState({
+    email: '',
+    password: ''
+  })
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.id]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const payload = await LoginUser(formValues)
+    setFormValues({ email: '', password: '' })
+    setUser(payload)
+    navigate('/')
+  }
   return (
     <div className="loginSection">
-      <div className="form-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <p className="title">Welcome back</p>
         <div className="form">
-          <input type="email" className="input" placeholder="Email" />
-          <input type="password" className="input" placeholder="Password" />
+          <input
+            id="email"
+            type="email"
+            className="input"
+            placeholder="Email"
+            onChange={handleChange}
+            value={formValues.email}
+            required
+          />
+          <input
+            id="password"
+            type="password"
+            className="input"
+            placeholder="Password"
+            onChange={handleChange}
+            value={formValues.password}
+            required
+          />
         </div>
         <p clasclassNames="page-link">
           <span className="page-link-label">Forgot Password?</span>
         </p>
         <div className="buttons-container">
-          <button className="form-btn">Log in</button>
+          <button className="form-btn" type="submit">
+            Log in
+          </button>
         </div>
 
-        <p class="sign-up-label">
+        <p className="sign-up-label">
           <Link
             to="/register"
-            style={{ color: "inherit", textDecoration: "inherit" }}
+            style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
-            Don't have an account?<span class="sign-up-link">Sign up</span>
+            Don't have an account?<span className="sign-up-link">Sign up</span>
           </Link>
         </p>
         <div className="buttons-container">
           <div className="google-login-button">
-            <svg className="google-icon"
+            <svg
+              className="google-icon"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -54,7 +92,7 @@ const Login = () => {
             <span>Log in with Google</span>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
