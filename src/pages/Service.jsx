@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { getService } from '../services/services'
-import Doctor from '../components/Doctor'
+import { useEffect, useState } from "react"
+import { useParams, Link } from "react-router-dom"
+import { getService } from "../services/services"
+import Doctor from "../components/Doctor"
 
 const Service = () => {
   let { id } = useParams()
@@ -15,8 +15,10 @@ const Service = () => {
   }, [])
   return (
     <div>
-      <h1>{service.name}</h1>
-      <p>{service.description}</p>
+      <section className="servPgContainer">
+        <h1 className="servicePgDes">{service.name}</h1>
+        <p className="servicePgDesP">{service.description}</p>
+      </section>
 
       <section>
         <h1 className="title">Doctors</h1>
