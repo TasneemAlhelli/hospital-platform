@@ -27,9 +27,9 @@ export const addDoctor = async (doctor) => {
   }
 }
 
-export const getDoctorSlot = async (doctorId) => {
+export const getDoctorSlot = async (doctorId, date) => {
   try {
-    const res = await Client.get(`/doctors/${doctorId}/slot`)
+    const res = await Client.post(`/doctors/${doctorId}/slot`, { date: date })
     return res.data
   } catch (error) {
     console.log(error)
