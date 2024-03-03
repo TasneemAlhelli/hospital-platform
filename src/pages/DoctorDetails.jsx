@@ -24,16 +24,16 @@ const DoctorDetails = () => {
           <p>Email: {doctor.email}</p>
           <p>Gender: {doctor.gender}</p>
           <p>Experience: {doctor.experience} years</p>
-          </div>
           {doctor.service ? (
             <p>Specialization: {doctor.service.specialization}</p>
-          ) : null}
+            ) : null}
           {doctor.schedule ? (
             <p>
               Working Hours: Sun - Thu / {doctor.schedule.start} -{" "}
               {doctor.schedule.end}
             </p>
           ) : null}
+          </div>
 
           <Link to="/book-an-appointment">
             <button className="moreDetailButton">Book Appointment</button>
