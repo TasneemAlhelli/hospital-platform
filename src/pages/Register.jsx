@@ -1,19 +1,117 @@
+import { useState } from 'react'
+import { RegisterUser } from '../services/auth'
+import { useNavigate } from 'react-router-dom'
+
 const Register = () => {
+  let navigate = useNavigate()
+
+  const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  }
+
+  const [formValues, setFormValues] = useState(initialState)
+  const options = [
+    'diabetes',
+    'hypertension',
+    'asthma',
+    'arthritis',
+    'cancer',
+    'allergies',
+    'heart disease',
+    'mental health conditions',
+    'other'
+  ]
+  const handleChange = (event) => {
+    setFormValues({ ...formValues, [event.target.id]: event.target.value })
+  }
+  const handelSubmit = async (event) => {
+    console.log(formValues)
+    event.preventDefault()
+    await RegisterUser(formValues)
+    navigate('/')
+  }
   return (
     <div className="signUpSection">
       <div className="signUp-form-container">
-        <p className="title">Create Account</p>
-        <div className="form">
-          <input type="text" className="input" placeholder="Name" />
-          <input type="email" className="input" placeholder="Email" />
-          <input type="password" className="input" placeholder="Password" />
+        <p className="title">Create account</p>
+        <form className="form" onSubmit={handelSubmit}>
+          <input
+            type="text"
+            className="input"
+            placeholder="Name"
+            id="name"
+            onChange={handleChange}
+            value={formValues.name}
+          />
+          <input
+            type="email"
+            className="input"
+            placeholder="Email"
+            id="email"
+            onChange={handleChange}
+            value={formValues.email}
+          />
+          <input
+            type="Number"
+            className="input"
+            placeholder="CPR"
+            id="cpr"
+            onChange={handleChange}
+            value={formValues.cpr}
+          />
+          <select id="gender" onChange={handleChange} value={formValues.gender}>
+            <option selected disabled value="">
+              Select Gender
+            </option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <input
+            type="date"
+            className="input"
+            placeholder="Birth Date"
+            id="birthDate"
+            onChange={handleChange}
+            value={formValues.birthDate}
+          />
+          <select
+            id="medicalConditions"
+            onChange={handleChange}
+            value={formValues.medicalConditions}
+          >
+            <option selected disabled value="">
+              Select Your Medical Conditions
+            </option>
+            {options.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
           <input
             type="password"
             className="input"
-            placeholder="Confirm Password"
+            placeholder="Password"
+            id="password"
+            onChange={handleChange}
+            value={formValues.password}
           />
-          <button className="form-btn">Create account</button>
-        </div>
+          <input
+            type="password"
+            className="input"
+            placeholder="confirm Password"
+            id="confirmPassword"
+            onChange={handleChange}
+            value={formValues.confirmPassword}
+          />
+          <button className="form-btn" type="submit">
+            Create account
+          </button>
+        </form>
         <p className="sign-up-label">
           Already have an account?<span className="sign-up-link">Log in</span>
         </p>

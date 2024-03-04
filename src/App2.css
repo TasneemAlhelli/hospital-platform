@@ -38,7 +38,7 @@
 
 .title {
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   margin: 10px 0 30px 0;
   font-size: 30px;
   font-weight: 800;
@@ -71,7 +71,7 @@
 
 .page-link-label {
   cursor: pointer;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-size: 9px;
   font-weight: 700;
 }
@@ -83,7 +83,7 @@
 .form-btn {
   margin-bottom: 20px;
   padding: 10px 15px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   border-radius: 8px;
   border: 0 !important;
   outline: 0 !important;
@@ -101,7 +101,7 @@
   margin: 0;
   font-size: 10px;
   color: #747474;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .sign-up-link {
@@ -112,7 +112,7 @@
   color: teal;
   cursor: pointer;
   font-weight: 800;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .buttons-container {
@@ -134,7 +134,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-size: 12px;
 }
 
@@ -154,7 +154,7 @@
   height: 450px;
   object-fit: cover;
   background-image: linear-gradient(to bottom, rgba(102, 144, 134, 0), #3bb49c),
-    url("../public/image/Doc-Serv-Des-Con.jpg");
+    url('../public/image/Doc-Serv-Des-Con.jpg');
   background-size: 100%;
   object-fit: fill;
   background-repeat: no-repeat;
@@ -162,7 +162,7 @@
 
 .servicePgDes {
   font-size: 40px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   color: #fff;
   padding-top: 220px;
   padding-left: 90px;
@@ -171,7 +171,7 @@
 
 .servicePgDesP {
   font-size: 20px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   color: #fff;
   padding-left: 90px;
   padding-right: 640px;
@@ -191,7 +191,7 @@
   transition-duration: 0.5s;
   color: #4c5a67;
   font-size: 16px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .docDetails {

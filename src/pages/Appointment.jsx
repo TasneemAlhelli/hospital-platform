@@ -1,67 +1,157 @@
-import { getServices, getService } from "../services/services"
-import { getDoctorSlot } from "../services/doctors"
-
-import { useEffect, useState } from "react"
+import { getServices, getService } from '../services/services'
+import { getDoctorSlot } from '../services/doctors'
+import { addAppointment } from '../services/appointments'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { format } from 'date-fns'
 
 const Appointment = () => {
+  let navigate = useNavigate()
+
+  const initalState = {
+    service: '',
+    doctor: '',
+    date: '',
+    time: '',
+    notes: ''
+  }
+
+  const [formValues, setFormValues] = useState(initalState)
+
   const [services, setServices] = useState([])
   const [doctors, setdoctors] = useState([])
-  const [slot, setSlot] = useState([])
+  const [slots, setSlots] = useState([])
+
   useEffect(() => {
     const getAllServices = async () => {
       const services = await getServices()
       setServices(services)
-      console.log(services)
     }
     getAllServices()
   }, [])
 
-  const handleChangeService = async () => {
-    const DoctorsByService = await getService(event.target.value)
-    console.log("Service", DoctorsByService)
-    setdoctors(DoctorsByService.doctors)
-    console.log("Doctors", DoctorsByService.doctors)
+  const handleChange = async (event) => {
+    let resetDate = {
+      date: ''
+    }
+    let resetTime = {
+      time: ''
+    }
+    setFormValues({
+      ...formValues,
+      [event.target.id]: event.target.value
+    })
+    if (event.target.id === 'service') {
+      const DoctorsByService = await getService(event.target.value)
+      setdoctors(DoctorsByService.doctors)
+      setFormValues({
+        ...formValues,
+        date: '',
+        time: '',
+        doctor: '',
+        [event.target.id]: event.target.value
+      })
+    } else if (event.target.id === 'doctor') {
+      setFormValues({
+        ...formValues,
+        ...resetDate,
+        ...resetTime,
+        [event.target.id]: event.target.value
+      })
+    } else if (event.target.id === 'date') {
+      setFormValues({
+        ...formValues,
+        ...resetTime,
+        [event.target.id]: event.target.value
+      })
+      const avalibleSlot = await getDoctorSlot(
+        formValues.doctor,
+        event.target.value
+      )
+      setSlots(avalibleSlot)
+    } else {
+      setFormValues({
+        ...formValues,
+        [event.target.id]: event.target.value
+      })
+    }
   }
-  const handleChangeDoctor = async () => {
-    const avalibleSlot = await getDoctorSlot(event.target.value)
-    setSlot(avalibleSlot)
-    console.log("avalibleSlot", avalibleSlot)
+
+  const bookAppointment = async (event) => {
+    event.preventDefault()
+    const appointment = await addAppointment(formValues)
+    navigate('/profile')
   }
+
   return (
     <div className="app-form">
-    <div className="appForm-container">
-      <h1 className="appForm-title">Book an Appointment</h1>
-      <form className="appForm">
-        <select className="appForm-input" onChange={handleChangeService}>
-          {services.map((service, index) => (
-            <option key={index} value={service._id}>
-              {service.name}
+      <div className="appForm-container">
+        <h1 className="appForm-title">Book An Appointment</h1>
+        <form className="appForm" onSubmit={bookAppointment}>
+          <select
+            id="service"
+            className="appForm-input"
+            onChange={handleChange}
+          >
+            <option value="" selected disabled>
+              Select Service
             </option>
-          ))}
-        </select>
-        <select className="appForm-input" onChange={handleChangeDoctor}>
-          {doctors.map((doctor, index) => (
-            <option key={index} value={doctor._id}>
-              {doctor.name}
+            {services.map((service, index) => (
+              <option key={index} value={service._id}>
+                {service.name}
+              </option>
+            ))}
+          </select>
+          <select id="doctor" className="appForm-input" onChange={handleChange}>
+            <option value="" selected disabled>
+              Select Doctor
             </option>
-          ))}
-        </select>
-        <input type="date" className="appForm-input"></input>
-        <select className="appForm-input">
-          <option>9:00</option>
-          <option>9:20</option>
-          <option>9:40</option>
-          <option>10:00</option>
-          <option>10:20</option>
-          <option>10:40</option>
-        </select>
-        <div>
-          <form class="appForm">
-            <button className="appForm-btn">Book Appointment</button>
-          </form>
-        </div>
-      </form>
-    </div>
+            {doctors.map((doctor, index) => (
+              <option key={index} value={doctor._id}>
+                {doctor.name}
+              </option>
+            ))}
+          </select>
+          <input
+            id="date"
+            type="date"
+            className="appForm-input"
+            min={format(new Date(), 'yyyy-MM-dd')}
+            value={formValues.date}
+            onChange={handleChange}
+          ></input>
+
+          <select
+            id="time"
+            className="appForm-input"
+            value={formValues.time}
+            onChange={handleChange}
+          >
+            <option value="" selected disabled>
+              Select Time
+            </option>
+            {slots
+              ? slots.map((slot, index) => (
+                  <option key={index} value={slot}>
+                    {slot}
+                  </option>
+                ))
+              : null}
+          </select>
+
+          <textarea
+            className="appForm-input"
+            placeholder="Add Notes"
+            id="notes"
+            value={formValues.notes}
+            onChange={handleChange}
+          ></textarea>
+
+          <button type="submit" className="appForm-btn">
+            Book Appointment
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
