@@ -7,42 +7,43 @@ import {
 import { useState, useEffect } from 'react'
 
 const Profile = () => {
-  let { userId } = useParams()
+  // let { userId } = useParams()
   const [appointments, setAppoitments] = useState([])
   const [profile, setProfile] = useState({})
 
-  const allAppointments = async () => {
-    const data = await getAppointments()
-    //setAppoitments(data)
-    console.log('appointments', data)
-  }
-  const complatedAppointments = async () => {
-    const status = 'completed'
-    const data = await getAppointmentsStatus(status)
-    //setAppoitments(data)
-    console.log('complated appointment', data)
-  }
-  const scheduleAppointments = async () => {
-    const status = 'schedule'
-    const data = await getAppointmentsStatus(status)
-    //setAppoitments(data)
-    console.log('schedule appointment', data)
-  }
+  // const allAppointments = async () => {
+  //   const data = await getAppointments(userId)
+  //   //setAppoitments(data)
+  //   console.log('appointment', data)
+  // }
+  // const complatedAppointments = async () => {
+  //   const status = 'complated'
+  //   const data = await getAppointmentsStatus(userId, status)
+  //   //setAppoitments(data)
+  //   console.log('complated appointment', data)
+  // }
+  // const scheduleAppointments = async () => {
+  //   const status = 'schedule'
+  //   const data = await getAppointmentsStatus(userId, status)
+  //   //setAppoitments(data)
+  //   console.log('schedule appointment', data)
+  // }
+
   const userInfo = async () => {
-    const data = await getUserInfo(userId)
-    //setProfile(data)
+    const data = await getUserInfo()
+    setProfile(data)
     console.log('user data', data)
-    let currentDate = new Date()
-    let birthDate = new Date(data.birthDate)
-    let timeDiff = currentDate.getTime() - birthDate.getTime()
-    let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
-    console.log('Age:', age)
+    // let currentDate = new Date()
+    // let birthDate = new Date(data.birthDate)
+    // let timeDiff = currentDate.getTime() - birthDate.getTime()
+    // let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
+    // console.log('Age:', age)
   }
   useEffect(() => {
     userInfo()
-    allAppointments()
-    complatedAppointments()
-    scheduleAppointments()
+    // allAppointments()
+    // complatedAppointments()
+    // scheduleAppointments()
   }, [])
 
   return (
