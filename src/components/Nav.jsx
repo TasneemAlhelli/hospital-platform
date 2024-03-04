@@ -22,7 +22,7 @@ const Nav = ({ user, handleLogOut }) => {
           to="/profile"
           style={{ color: 'inherit', textDecoration: 'inherit' }}
         >
-          <li>profile</li>
+          <li>Profile</li>
         </Link>
 
         <Link
