@@ -55,6 +55,7 @@ const Profile = () => {
         <div key={completedappointment._id}>
           <h3>{completedappointment.date}</h3>
           <h4>{completedappointment.time}</h4>
+          <h4>{completedappointment.doctor.name}</h4>
           <Link to={`/review/${completedappointment._id}`}>
             <button>Leave Review</button>
           </Link>

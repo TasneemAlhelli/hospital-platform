@@ -350,3 +350,8 @@ h2 {
   -webkit-box-shadow: none;
   box-shadow: none;
 } */
+
+.star {
+  color: gold;
+  margin-right: 5px;
+}

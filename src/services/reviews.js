@@ -8,3 +8,12 @@ export const createReview = async (data) => {
     console.log(error)
   }
 }
+
+export const getReviewsByDoctor = async (doctorId) => {
+  try {
+    const reviews = await Client.get(`/reviews/${doctorId}`)
+    return reviews.data
+  } catch (error) {
+    console.log(error)
+  }
+}
