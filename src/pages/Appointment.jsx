@@ -31,12 +31,6 @@ const Appointment = () => {
   }, [])
 
   const handleChange = async (event) => {
-    let resetDate = {
-      date: ''
-    }
-    let resetTime = {
-      time: ''
-    }
     setFormValues({
       ...formValues,
       [event.target.id]: event.target.value
@@ -54,14 +48,14 @@ const Appointment = () => {
     } else if (event.target.id === 'doctor') {
       setFormValues({
         ...formValues,
-        ...resetDate,
-        ...resetTime,
+        date: '',
+        time: '',
         [event.target.id]: event.target.value
       })
     } else if (event.target.id === 'date') {
       setFormValues({
         ...formValues,
-        ...resetTime,
+        time: '',
         [event.target.id]: event.target.value
       })
       const avalibleSlot = await getDoctorSlot(
@@ -102,7 +96,12 @@ const Appointment = () => {
               </option>
             ))}
           </select>
-          <select id="doctor" className="appForm-input" onChange={handleChange}>
+          <select
+            id="doctor"
+            className="appForm-input"
+            value={formValues.doctor}
+            onChange={handleChange}
+          >
             <option value="" selected disabled>
               Select Doctor
             </option>
