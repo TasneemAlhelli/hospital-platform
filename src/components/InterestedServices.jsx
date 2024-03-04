@@ -1,4 +1,4 @@
-import { getInterestedServices } from '../services/services'
+import { getInterestedServices, getServices } from '../services/services'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 const InterestedServices = () => {
@@ -9,7 +9,14 @@ const InterestedServices = () => {
   }, [])
 
   const getAllServices = async () => {
-    const services = await getInterestedServices()
+    const token = localStorage.getItem('token')
+    let services = []
+    if (token) {
+      services = await getInterestedServices()
+    } else {
+      services = await getServices()
+      services = services.slice(0, 4)
+    }
     setInterestedServices(services)
   }
 
