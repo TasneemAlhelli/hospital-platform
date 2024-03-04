@@ -24,9 +24,9 @@ export const getAppointments = async (userId) => {
     console.log(error)
   }
 }
-export const getAppointmentsStatus = async (userId, status) => {
+export const getAppointmentsStatus = async (status) => {
   try {
-    const res = await Client.get(`/user/${userId}/appointments/${status}`)
+    const res = await Client.get(`/user/appointments/${status}`)
     return res.data
   } catch (error) {
     console.log(error)
@@ -43,7 +43,7 @@ export const addAppointment = async (data) => {
 
 export const deleteAppointment = async () => {
   try {
-    const res = await Client.delete('/user/id/appointment/id')
+    const res = await Client.delete(`/user/appointment/${appontmrntId}`)
   } catch (error) {
     console.log(error)
   }
