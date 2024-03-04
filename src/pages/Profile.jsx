@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import {
-  getAppointments,
+  deleteAppointment,
   getUserInfo,
   getAppointmentsStatus
 } from '../services/appointments'
@@ -10,9 +10,15 @@ import { format } from 'date-fns'
 const Profile = () => {
   const [completedappointments, setCompletedAppoitments] = useState([])
   const [scheduleappointments, setScheduleAppoitments] = useState([])
-
+  const [deleted, setDeleted] = useState(false)
   const [profile, setProfile] = useState({})
-  const handelCancle = () => {}
+  const handelCancle = async (event) => {
+    event.preventDefault()
+    await deleteAppointment(event.target.value)
+    // scheduleAppointments()
+    setDeleted(true)
+    console.log('event')
+  }
 
   const complatedAppointments = async () => {
     const status = 'completed'
@@ -40,11 +46,12 @@ const Profile = () => {
     userInfo()
     complatedAppointments()
     scheduleAppointments()
-  }, [])
+  }, [deleted])
 
   return (
     <div>
       <h1>Profile</h1>
+      <h3>{profile.name}</h3>
       <h2>Completed Appointments</h2>
       {completedappointments.map((completedappointment) => (
         <div>

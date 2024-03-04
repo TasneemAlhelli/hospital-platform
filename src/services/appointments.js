@@ -41,9 +41,10 @@ export const addAppointment = async (data) => {
   }
 }
 
-export const deleteAppointment = async () => {
+export const deleteAppointment = async (appontmrntId) => {
   try {
     const res = await Client.delete(`/user/appointment/${appontmrntId}`)
+    return res.data
   } catch (error) {
     console.log(error)
   }
