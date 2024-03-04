@@ -71,7 +71,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/add-service" element={<AddService />} />
-          <Route path="/review" element={<Review />} />
+          <Route path="/review/:id" element={<Review />} />
         </Routes>
       </main>
 

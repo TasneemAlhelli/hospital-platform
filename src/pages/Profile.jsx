@@ -17,31 +17,29 @@ const Profile = () => {
     await deleteAppointment(event.target.value)
     // scheduleAppointments()
     setDeleted(true)
-    console.log('event')
   }
 
   const complatedAppointments = async () => {
     const status = 'completed'
     const data = await getAppointmentsStatus(status)
     setCompletedAppoitments(data)
-    console.log('complated appointment', data)
   }
+
   const scheduleAppointments = async () => {
     const status = 'schedule'
     const data = await getAppointmentsStatus(status)
     setScheduleAppoitments(data)
-    console.log('schedule appointment', data)
   }
+
   const userInfo = async () => {
     const data = await getUserInfo()
     setProfile(data)
-    console.log('user data', data)
     let currentDate = new Date()
     let birthDate = new Date(data.birthDate)
     let timeDiff = currentDate.getTime() - birthDate.getTime()
     let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
-    console.log('Age:', age)
   }
+
   useEffect(() => {
     userInfo()
     complatedAppointments()
@@ -54,16 +52,20 @@ const Profile = () => {
       <h3>{profile.name}</h3>
       <h2>Completed Appointments</h2>
       {completedappointments.map((completedappointment) => (
-        <div>
+        <div key={completedappointment._id}>
           <h3>{completedappointment.date}</h3>
           <h4>{completedappointment.time}</h4>
+          <h4>{completedappointment.doctor.name}</h4>
+          <Link to={`/review/${completedappointment._id}`}>
+            <button>Leave Review</button>
+          </Link>
         </div>
       ))}
       <h2>schedule Appointments</h2>
 
       {scheduleappointments
         ? scheduleappointments.map((scheduleappointment) => (
-            <div>
+            <div key={scheduleappointment._id}>
               <h3>{format(scheduleappointment.date, 'yyyy-MM-dd')}</h3>
               <h4>{scheduleappointment.time}</h4>
               <h4>{scheduleappointment.doctor.name}</h4>
