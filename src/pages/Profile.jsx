@@ -28,6 +28,7 @@ const Profile = () => {
   //   //setAppoitments(data)
   //   console.log('schedule appointment', data)
   // }
+
   const userInfo = async () => {
     const data = await getUserInfo()
     setProfile(data)

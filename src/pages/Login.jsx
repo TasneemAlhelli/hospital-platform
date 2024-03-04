@@ -44,7 +44,8 @@ const Login = ({ setUser }) => {
             required
           />
         </div>
-        <p classNames="page-link">
+
+        <p className="page-link">
           <span className="page-link-label">Forgot Password?</span>
         </p>
         <div className="buttons-container">

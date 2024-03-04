@@ -16,17 +16,17 @@ export const updateUserInfo = async (userId, data) => {
     console.log(error)
   }
 }
-export const getAppointments = async (userId) => {
+export const getAppointments = async () => {
   try {
-    const res = await Client.get(`/user/${userId}/appointments`)
+    const res = await Client.get(`/user/appointments`)
     return res.data
   } catch (error) {
     console.log(error)
   }
 }
-export const getAppointmentsStatus = async (userId, status) => {
+export const getAppointmentsStatus = async (status) => {
   try {
-    const res = await Client.get(`/user/${userId}/appointments/${status}`)
+    const res = await Client.get(`/user/appointments/${status}`)
     return res.data
   } catch (error) {
     console.log(error)
