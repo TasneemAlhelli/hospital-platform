@@ -30,7 +30,7 @@ const Appointment = () => {
   return (
     <div className="app-form">
     <div className="appForm-container">
-      <h1 className="appForm-title">Book An Appointment</h1>
+      <h1 className="appForm-title">Book an Appointment</h1>
       <form className="appForm">
         <select className="appForm-input" onChange={handleChangeService}>
           {services.map((service, index) => (

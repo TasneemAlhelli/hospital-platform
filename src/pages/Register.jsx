@@ -2,7 +2,7 @@ const Register = () => {
   return (
     <div className="signUpSection">
       <div className="signUp-form-container">
-        <p className="title">Create account</p>
+        <p className="title">Create Account</p>
         <div className="form">
           <input type="text" className="input" placeholder="Name" />
           <input type="email" className="input" placeholder="Email" />
