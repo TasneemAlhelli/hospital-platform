@@ -68,8 +68,8 @@ h1 {
 }
 
 h2 {
-  color: #4c5a67;
-  font-size: 40px;
+  color: #4C5A67;
+  font-size: 48px;
   font-family: "Lucida Sans", sans-serif;
 }
 
@@ -92,7 +92,7 @@ h2 {
   text-align: center;
   font-size: 17px;
   padding: 16px;
-  width: 250px;
+  width: 240px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -132,7 +132,7 @@ h2 {
 .aboutContainer h2 {
   padding-top: 50px;
   padding-left: 40px;
-  color: #0a987b;
+  color: #4C5A67;
   font-family: "Lucida Sans", sans-serif;
 }
 .aboutContainer p {
@@ -232,7 +232,6 @@ h2 {
 
 .servSection {
   padding: 70px;
-  margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -318,11 +317,10 @@ h2 {
   color: #ffffff;
   text-align: center;
   font-size: 17px;
-  padding: 16px;
-  width: 180px;
+  padding: 14px;
+  width: 130px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
 }
 
 .viewMoreBtn span {

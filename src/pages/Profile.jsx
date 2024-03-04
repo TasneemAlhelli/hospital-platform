@@ -52,6 +52,8 @@ const Profile = () => {
       <Link to="/profile/edit">
         <button>Edit prfile :</button>
       </Link>
+
+      
     </div>
   )
 }
