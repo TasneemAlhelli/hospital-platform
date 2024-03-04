@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createReview } from '../services/reviews'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Review = ({ appointment, doctor }) => {
+const Review = () => {
+  let { id } = useParams()
+  let navigate = useNavigate()
+
   const initalState = {
-    appointment: '65e569229f6b638c1037fe13',
-    doctor: '65e4ac2b5c9aa02da4d08f2b',
+    appointment: id,
     hospitalRate: '',
     rate: '',
     comment: ''
@@ -19,7 +23,7 @@ const Review = ({ appointment, doctor }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     const review = await createReview(formValues)
-    console.log(review)
+    navigate(`/doctor-details/${review.doctor}`)
   }
 
   return (
