@@ -1,21 +1,5 @@
 import Client from './api'
 
-export const getUserInfo = async () => {
-  try {
-    const res = await Client.get(`/user`)
-    console.log(res.data)
-    return res.data
-  } catch (error) {
-    console.log(error)
-  }
-}
-export const updateUserInfo = async (userId, data) => {
-  try {
-    const res = await Client.put(`/user/${userId}`, data)
-  } catch (error) {
-    console.log(error)
-  }
-}
 export const getAppointments = async () => {
   try {
     const res = await Client.get(`/user/appointments`)
@@ -41,9 +25,10 @@ export const addAppointment = async (data) => {
   }
 }
 
-export const deleteAppointment = async () => {
+export const deleteAppointment = async (appontmrntId) => {
   try {
-    const res = await Client.delete('/user/id/appointment/id')
+    const res = await Client.delete(`/user/appointment/${appontmrntId}`)
+    return res.data
   } catch (error) {
     console.log(error)
   }
