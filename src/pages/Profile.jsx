@@ -1,9 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
 import {
   deleteAppointment,
-  getUserInfo,
   getAppointmentsStatus
 } from '../services/appointments'
+import { getUserInfo } from '../services/user'
 import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 

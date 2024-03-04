@@ -1,24 +1,8 @@
 import Client from './api'
 
-export const getUserInfo = async () => {
+export const getAppointments = async () => {
   try {
-    const res = await Client.get(`/user`)
-    console.log(res.data)
-    return res.data
-  } catch (error) {
-    console.log(error)
-  }
-}
-export const updateUserInfo = async (userId, data) => {
-  try {
-    const res = await Client.put(`/user/${userId}`, data)
-  } catch (error) {
-    console.log(error)
-  }
-}
-export const getAppointments = async (userId) => {
-  try {
-    const res = await Client.get(`/user/${userId}/appointments`)
+    const res = await Client.get(`/user/appointments`)
     return res.data
   } catch (error) {
     console.log(error)

@@ -1,9 +1,24 @@
-import { updateUserInfo } from '../services/appointments'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { getUserInfo, updateUserInfo } from '../services/user'
 
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { format } from 'date-fns'
 const EditProfile = ({ user, handelEditProfile }) => {
   let navigate = useNavigate()
+  const [formValues, setFormValues] = useState({})
+  const [date, setDate] = useState('')
+
+  useEffect(() => {
+    const userInfo = async () => {
+      const user = await getUserInfo()
+      setFormValues({
+        ...user,
+        birthDate: format(new Date(user.birthDate), 'yyyy-MM-dd')
+      })
+      setDate(format(new Date(user.birthDate), 'yyyy-MM-dd'))
+    }
+    userInfo()
+  }, [])
 
   const options = [
     'diabetes',
@@ -16,7 +31,6 @@ const EditProfile = ({ user, handelEditProfile }) => {
     'mental health conditions',
     'other'
   ]
-  const [formValues, setFormValues] = useState(user)
 
   const handleChange = (event) => {
     setFormValues({
@@ -26,7 +40,7 @@ const EditProfile = ({ user, handelEditProfile }) => {
   }
   const handelSubmit = async (event) => {
     event.preventDefault()
-    const editUser = await updateUserInfo(user.id, formValues)
+    const editUser = await updateUserInfo(formValues)
     handelEditProfile(editUser)
     navigate('/profile')
   }
@@ -51,12 +65,9 @@ const EditProfile = ({ user, handelEditProfile }) => {
           id="cpr"
           onChange={handleChange}
           defaultValue={formValues.cpr}
+          value={formValues.cpr}
         />
-        <select
-          id="gender"
-          onChange={handleChange}
-          defaultValue={formValues.gender}
-        >
+        <select id="gender" onChange={handleChange} value={formValues.gender}>
           <option selected disabled value="">
             Select Gender
           </option>
@@ -67,6 +78,7 @@ const EditProfile = ({ user, handelEditProfile }) => {
           id="medicalConditions"
           onChange={handleChange}
           defaultValue={formValues.medicalConditions}
+          value={formValues.medicalConditions}
         >
           <option selected disabled value="">
             Select Your Medical Conditions
@@ -83,7 +95,8 @@ const EditProfile = ({ user, handelEditProfile }) => {
           placeholder="Birth Date"
           id="birthDate"
           onChange={handleChange}
-          defaultValue={new Date(formValues.birthDate)}
+          defaultValue={date}
+          value={formValues.birthDate}
         />
 
         <button className="form-btn" type="submit">
