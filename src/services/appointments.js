@@ -1,16 +1,17 @@
 import Client from './api'
 
-export const getUserInfo = async (userId) => {
+export const getUserInfo = async () => {
   try {
-    const res = await Client.get(`/user/${userId}`)
+    const res = await Client.get(`/user`)
+    console.log(res.data)
     return res.data
   } catch (error) {
     console.log(error)
   }
 }
-export const updateUserInfo = async () => {
+export const updateUserInfo = async (userId, data) => {
   try {
-    const res = await Client.put(`/user/${userId}`)
+    const res = await Client.put(`/user/${userId}`, data)
   } catch (error) {
     console.log(error)
   }
