@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link } from 'react-router-dom'
 import {
   deleteAppointment,
   getAppointmentsStatus
@@ -12,6 +12,7 @@ const Profile = () => {
   const [scheduleappointments, setScheduleAppoitments] = useState([])
   const [deleted, setDeleted] = useState(false)
   const [profile, setProfile] = useState({})
+  const [toggleAppointments, setToggleAppointments] = useState(true)
   const handelCancle = async (event) => {
     event.preventDefault()
     await deleteAppointment(event.target.value)
@@ -78,26 +79,68 @@ const Profile = () => {
             />
             <label
               className="btn-color-mode-switch-inner"
-              data-off="Completed"
-              data-on="Scheduled"
+              data-off="Scheduled"
+              data-on="Completed"
               for="color_mode"
+              onClick={() => setToggleAppointments(!toggleAppointments)}
             ></label>
           </label>
         </div>
-        <div className="banner">
-          <div class="reviewsCard">
-            <div class="imgWrapper">
-              <img src="./public/image/icons8-schedule-64.png"></img>
-            </div>
+        {/* <div className="banner"> */}
+        {/* <div class="reviewsCard"> */}
+        {/* <div class="imgWrapper">
+          <img src="./public/image/icons8-schedule-64.png"></img>
+        </div> */}
+        {toggleAppointments
+          ? scheduleappointments.map((scheduleappointment) => (
+              <div className="banner">
+                <div class="reviewsCard">
+                  <div class="imgWrapper">
+                    <img src="./public/image/icons8-schedule-64.png"></img>
+                  </div>
+                  <span class="reviewText">
+                    {scheduleappointment.doctor.name}
+                  </span>
+                  <span class="review">
+                    {format(scheduleappointment.date, 'yyyy-MM-dd')}
+                    {scheduleappointment.time}
+                  </span>
+                  <div class="reviewWrapper" key={scheduleappointment._id}>
+                    <button
+                      class="reviewBtn"
+                      onClick={handelCancle}
+                      value={scheduleappointment._id}
+                    >
+                      Cancel Appointment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          : completedappointments.map((completedappointment) => (
+              <div className="banner">
+                <div class="reviewsCard">
+                  <div class="imgWrapper">
+                    <img src="./public/image/icons8-schedule-64.png"></img>
+                  </div>
+                  <span class="reviewText">
+                    {completedappointment.doctor.name}
+                  </span>
+                  <span class="review">
+                    {format(completedappointment.date, 'yyyy-MM-dd')}
+                    {completedappointment.time}
+                  </span>
+                  <div class="reviewWrapper" key={completedappointment._id}>
+                    <Link to={`/review/${completedappointment._id}`}>
+                      <button class="reviewBtn">Review</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
 
-            <div class="reviewWrapper">
-              <span class="reviewText">Description</span>
-              <p class="review">pspspspsps</p>
-            </div>
-
-            <button class="reviewBtn">Review</button>
-          </div>
-        </div>
+        {/* </div> */}
+        {/* </div> */}
       </div>
     </div>
   )
