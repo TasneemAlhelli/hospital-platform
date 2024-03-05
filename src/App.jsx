@@ -21,6 +21,7 @@ import AddService from './pages/AddService'
 import { useState, useEffect } from 'react'
 import { CheckSesion } from './services/auth'
 import Review from './pages/Review'
+import Payment from './pages/Payment'
 
 function App() {
   const [user, setUser] = useState({})
@@ -56,10 +57,8 @@ function App() {
           <Route path="/services/:id" element={<Service />} />
           <Route path="/services" element={<Services />} />
           <Route path="/doctors" element={<Doctors />} />
-
           {/* <Route path="/doctors/:doctorId" element={<DoctorDetails />} /> */}
           <Route path="/doctor-details/:id" element={<DoctorDetails />} />
-
           {/* <Route path="/profile/:userrId/edit" element={<EditProfile />} /> */}
           <Route
             path="/profile/edit"
@@ -67,12 +66,13 @@ function App() {
               <EditProfile user={user} handelEditProfile={handelEditProfile} />
             }
           />
-
           {/* <Route path="/profile/:userId" element={<Profile />} /> */}
           <Route path="/profile" element={<Profile />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/add-service" element={<AddService />} />
           <Route path="/review/:id" element={<Review />} />
+          <Route path="/checkout" element={<Payment />} />
+          <Route path="/checkout" element={<Payment />} />
         </Routes>
       </main>
 
