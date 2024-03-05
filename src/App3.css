@@ -136,7 +136,7 @@
   margin-top: 40px;
   margin-bottom: 20px;
   padding: 15px 15px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   font-size: 15px;
   border-radius: 8px;
   border: 0 !important;
@@ -148,18 +148,11 @@
 }
 
 .timeSec {
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   color: #4c5a67;
 }
 
-
-********
-********
-********
-********
-
-
-.app-form {
+******** ******** ******** ******** .editProfile-form {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -168,7 +161,7 @@
   align-content: stretch;
 }
 
-.appForm-container {
+.editProfile-container {
   margin-top: 120px;
   margin-bottom: 90px;
   width: 550px;
@@ -179,7 +172,7 @@
   padding: 60px 30px;
 }
 
-.appForm-title {
+.editProfile-title {
   text-align: center;
   margin: 10px 0px 20px 0px;
   font-size: 28px;
@@ -189,31 +182,7 @@
   letter-spacing: 0.5px;
 }
 
-.appForm-Txt {
-  text-align: center;
-  margin: 10px 0 40px 0;
-  font-size: 14px;
-  color: #747474;
-  font-family: "Lucida Sans", sans-serif;
-  letter-spacing: 0.5px;
-}
-
-.appForm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.appForm-input {
-  border-radius: 8px;
-  border: 1px solid #c0c0c0;
-  outline: 0 !important;
-  box-sizing: border-box;
-  padding: 12px;
-}
-
-.appForm-btn {
+.editProfile-btn {
   margin-bottom: 20px;
   margin-top: 15px;
   padding: 10px 15px;
@@ -227,6 +196,6 @@
   box-shadow: rgba(0, 0, 0, 0.13) 0px 3px 8px;
 }
 
-.appForm-btn:active {
+.editProfile-btn:active {
   box-shadow: none;
 }

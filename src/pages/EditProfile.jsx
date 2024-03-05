@@ -50,9 +50,9 @@ const EditProfile = ({ user, handelEditProfile }) => {
   }
 
   return (
-    <div>
-      <div>
-        <h1>EditProfile</h1>
+    <div className="editProfile-form">
+      <div className="editProfile-container">
+        <h1 className="editProfile-title">EditProfile</h1>
         <form className="form" onSubmit={handelSubmit}>
           <input
             type="text"
@@ -72,7 +72,12 @@ const EditProfile = ({ user, handelEditProfile }) => {
             defaultValue={formValues.cpr}
             value={formValues.cpr}
           />
-          <select id="gender" onChange={handleChange} value={formValues.gender}>
+          <select
+            id="gender"
+            onChange={handleChange}
+            value={formValues.gender}
+            className="input"
+          >
             <option selected disabled value="">
               Select Gender
             </option>
@@ -84,6 +89,7 @@ const EditProfile = ({ user, handelEditProfile }) => {
             onChange={handleChange}
             defaultValue={formValues.medicalConditions}
             value={formValues.medicalConditions}
+            className="input"
           >
             <option selected disabled value="">
               Select Your Medical Conditions
@@ -104,7 +110,7 @@ const EditProfile = ({ user, handelEditProfile }) => {
             value={formValues.birthDate}
           />
 
-          <button className="form-btn" type="submit">
+          <button className="editProfile-btn" type="submit">
             Edit account
           </button>
         </form>
