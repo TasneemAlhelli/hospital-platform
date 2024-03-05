@@ -24,7 +24,7 @@ const Appointment = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const services = await getServices()
+      const { services } = await getServices()
       setServices(services)
     }
     getAllServices()
@@ -36,8 +36,8 @@ const Appointment = () => {
       [event.target.id]: event.target.value
     })
     if (event.target.id === 'service') {
-      const DoctorsByService = await getService(event.target.value)
-      setdoctors(DoctorsByService.doctors)
+      const { service } = await getService(event.target.value)
+      setdoctors(service.doctors)
       setFormValues({
         ...formValues,
         date: '',
