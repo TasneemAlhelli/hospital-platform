@@ -14,7 +14,7 @@ const InterestedServices = () => {
     if (token) {
       services = await getInterestedServices()
     } else {
-      services = await getServices()
+      services = await getServices()?.services
       services = services.slice(0, 4)
     }
     setInterestedServices(services)

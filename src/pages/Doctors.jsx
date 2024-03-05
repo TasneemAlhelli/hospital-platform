@@ -7,6 +7,7 @@ import Doctor from '../components/Doctor'
 
 const Doctors = () => {
   const [services, setServices] = useState([])
+  const [doctorReviews, setDoctorReviews] = useState([])
   const [serachResualt, setSerachResualt] = useState()
   const [doctors, setDoctors] = useState([])
   const [searched, toggleSearched] = useState(false)
@@ -17,8 +18,8 @@ const Doctors = () => {
   const handleChangeService = async () => {
     setSelectedService(event.target.value)
     setDoctorSelectedDisable(false)
-    const DoctorsByService = await getService(event.target.value)
-    setDoctors(DoctorsByService.doctors)
+    const { service } = await getService(event.target.value)
+    setDoctors(service.doctors)
   }
   const handleChangedoctor = async () => {
     setSelectedDoctor(event.target.value)
@@ -37,7 +38,8 @@ const Doctors = () => {
   }
   useEffect(() => {
     const getAllServices = async () => {
-      const services = await getServices()
+      const { services, doctorReviews } = await getServices()
+      setDoctorReviews(doctorReviews)
       setServices(services)
     }
     getAllServices()
