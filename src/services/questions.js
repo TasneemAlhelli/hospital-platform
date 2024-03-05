@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const getAllQuestion = async (req, res) => {
+export const getAllQuestion = async () => {
   try {
     const res = await Client.get('/questions')
     return res.data
@@ -9,9 +9,9 @@ export const getAllQuestion = async (req, res) => {
   }
 }
 
-export const createQuestion = async (req, res) => {
+export const createQuestion = async (data) => {
   try {
-    const res = await Client.post('/questions')
+    const res = await Client.post('/questions', data)
   } catch (error) {
     console.log(error)
   }

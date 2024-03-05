@@ -1,14 +1,16 @@
 import { getServices } from '../services/services'
 import { useState, useEffect } from 'react'
+import { createQuestion } from '../services/questions'
 
 const AskDoctor = () => {
-  const [services, setServices] = useState([])
-  const [formValues, setFormValues] = useState()
   const initalState = {
     service: '',
     title: '',
     content: ''
   }
+  const [services, setServices] = useState([])
+  const [formValues, setFormValues] = useState(initalState)
+
   useEffect(() => {
     const getAllServices = async () => {
       const { services } = await getServices()
@@ -16,6 +18,10 @@ const AskDoctor = () => {
     }
     getAllServices()
   }, [])
+  const handelSubmit = async () => {
+    event.preventDefault()
+    await createQuestion(formValues)
+  }
   const handleChange = async (event) => {
     setFormValues({
       ...formValues,
@@ -25,7 +31,7 @@ const AskDoctor = () => {
   return (
     <div>
       <h1>ASK ME</h1>
-      <form>
+      <form onSubmit={handelSubmit}>
         <input
           type="text"
           placeholder="Question Title"
