@@ -57,10 +57,13 @@ h2 {
   gap: 30px;
 }
 .question-container {
-  width: 35%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
+  width: 330px;
+  height: 260px;
+  background: #c4e2dac2;
+  border-radius: 12px;
+  box-shadow: 0px 0px 30px #0000001f;
+  align-items: center;
+  transition-duration: 0.5s;
 }
 
 .content {
@@ -68,7 +71,7 @@ h2 {
   margin-top: 20px;
   font-size: 1.2em;
   color: #211423;
-  background-color: #3bb49c;
+  background-color: #f8fefd;
   padding: 10px;
   border-radius: 5px;
   line-height: 2;
@@ -77,14 +80,6 @@ h2 {
   font-weight: bold;
   margin-right: 10px;
   color: #14171a;
-}
-.ans-section {
-  margin-top: 10px;
-}
-
-.ans-section .answer {
-  font-weight: bold;
-  color: #333;
 }
 
 .ans-section form input {

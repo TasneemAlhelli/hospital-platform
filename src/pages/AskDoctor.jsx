@@ -103,7 +103,7 @@ const AskDoctor = () => {
           ? questions.map((question) => (
               <div key={question._id} className="question-container">
                 <span className="username">{question.user.name}</span>
-                <p className="title">{question.title}</p>
+                <p>{question.title}</p>
                 <p className="content">{question.content}</p>
                 <p className="time-ago">{question.createdAt}</p>
                 <section className="ans-section">
