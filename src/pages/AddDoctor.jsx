@@ -1,12 +1,12 @@
-import { addDoctor } from "../services/doctors"
-import { getServices } from "../services/services"
-import { useState, useEffect } from "react"
+import { addDoctor } from '../services/doctors'
+import { getServices } from '../services/services'
+import { useState, useEffect } from 'react'
 
 const AddDoctor = () => {
   const initial = {
-    name: "",
-    email: "",
-    gender: "",
+    name: '',
+    email: '',
+    gender: ''
   }
   const [doctor, setDoctor] = useState(initial)
   const [services, setServices] = useState([])
@@ -26,7 +26,7 @@ const AddDoctor = () => {
 
   const handelSubmit = (event) => {
     event.preventDefault()
-    console.log("event", event)
+    console.log('event', event)
 
     addDoctor(doctor)
   }
@@ -108,8 +108,8 @@ const AddDoctor = () => {
               <option value="" selected disabled>
                 Select Service
               </option>
-              {services.map((service, index) => (
-                <option key={index} value={service._id}>
+              {services.map((service) => (
+                <option key={service._id} value={service._id}>
                   {service.name}
                 </option>
               ))}
