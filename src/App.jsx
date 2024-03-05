@@ -20,6 +20,7 @@ import AddDoctor from "./pages/AddDoctor"
 import AddService from "./pages/AddService"
 import { useState, useEffect } from "react"
 import { CheckSesion } from "./services/auth"
+import Review from './pages/Review'
 
 function App() {
   const [user, setUser] = useState({})
@@ -71,6 +72,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/add-service" element={<AddService />} />
+          <Route path="/review/:id" element={<Review />} />
         </Routes>
       </main>
 

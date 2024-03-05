@@ -5,7 +5,7 @@ const Services = () => {
   const [services, setServices] = useState([])
   useEffect(() => {
     const getAllServices = async () => {
-      const services = await getServices()
+      const { services } = await getServices()
       setServices(services)
     }
     getAllServices()

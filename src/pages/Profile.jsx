@@ -1,50 +1,51 @@
 import { useParams, Link } from "react-router-dom"
 import {
-  getAppointments,
-  getUserInfo,
-  getAppointmentsStatus,
-} from "../services/appointments"
-import { useState, useEffect } from "react"
+  deleteAppointment,
+  getAppointmentsStatus
+} from '../services/appointments'
+import { getUserInfo } from '../services/user'
+import { useState, useEffect } from 'react'
+import { format } from 'date-fns'
 
 const Profile = () => {
-  // let { userId } = useParams()
-  const [appointments, setAppoitments] = useState([])
+  const [completedappointments, setCompletedAppoitments] = useState([])
+  const [scheduleappointments, setScheduleAppoitments] = useState([])
+  const [deleted, setDeleted] = useState(false)
   const [profile, setProfile] = useState({})
+  const handelCancle = async (event) => {
+    event.preventDefault()
+    await deleteAppointment(event.target.value)
+    // scheduleAppointments()
+    setDeleted(true)
+  }
 
-  // const allAppointments = async () => {
-  //   const data = await getAppointments(userId)
-  //   //setAppoitments(data)
-  //   console.log('appointment', data)
-  // }
-  // const complatedAppointments = async () => {
-  //   const status = 'complated'
-  //   const data = await getAppointmentsStatus(userId, status)
-  //   //setAppoitments(data)
-  //   console.log('complated appointment', data)
-  // }
-  // const scheduleAppointments = async () => {
-  //   const status = 'schedule'
-  //   const data = await getAppointmentsStatus(userId, status)
-  //   //setAppoitments(data)
-  //   console.log('schedule appointment', data)
-  // }
+  const complatedAppointments = async () => {
+    const status = 'completed'
+    const data = await getAppointmentsStatus(status)
+    setCompletedAppoitments(data)
+  }
+
+  const scheduleAppointments = async () => {
+    const status = 'schedule'
+    const data = await getAppointmentsStatus(status)
+    setScheduleAppoitments(data)
+  }
 
   const userInfo = async () => {
     const data = await getUserInfo()
     setProfile(data)
-    console.log("user data", data)
-    // let currentDate = new Date()
-    // let birthDate = new Date(data.birthDate)
-    // let timeDiff = currentDate.getTime() - birthDate.getTime()
-    // let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
-    // console.log('Age:', age)
+
+    let currentDate = new Date()
+    let birthDate = new Date(data.birthDate)
+    let timeDiff = currentDate.getTime() - birthDate.getTime()
+    let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
   }
+
   useEffect(() => {
     userInfo()
-    // allAppointments()
-    // complatedAppointments()
-    // scheduleAppointments()
-  }, [])
+    complatedAppointments()
+    scheduleAppointments()
+  }, [deleted])
 
   return (
     <div className="profilePosition">

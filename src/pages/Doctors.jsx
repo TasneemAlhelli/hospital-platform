@@ -2,56 +2,71 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getServices, getService } from '../services/services'
 import { getDoctor } from '../services/doctors'
-
 import Doctor from '../components/Doctor'
+import _ from 'lodash'
 
 const Doctors = () => {
   const [services, setServices] = useState([])
-  const [serachResualt, setSerachResualt] = useState()
   const [doctors, setDoctors] = useState([])
+  const [searchResult, setSearchResult] = useState([])
   const [searched, toggleSearched] = useState(false)
   const [doctorSelectedDisable, setDoctorSelectedDisable] = useState(true)
-  const [selectedDoctor, setSelectedDoctor] = useState('')
-  const [selectedService, setSelectedService] = useState('')
+  const [doctorReviews, setDoctorReviews] = useState([])
 
-  const handleChangeService = async () => {
-    setSelectedService(event.target.value)
-    setDoctorSelectedDisable(false)
-    const DoctorsByService = await getService(event.target.value)
-    setDoctors(DoctorsByService.doctors)
-  }
-  const handleChangedoctor = async () => {
-    setSelectedDoctor(event.target.value)
-    if (event.target.value === 'allDoctor') {
-      setSerachResualt(doctors)
-    } else {
-      setSerachResualt(await getDoctor(event.target.value))
-    }
-    toggleSearched(true)
-  }
-  const handelClick = () => {
-    setDoctorSelectedDisable(true)
-    toggleSearched(false)
-    setSelectedService('')
-    setSelectedDoctor('')
-  }
+  const [formValues, setFormValues] = useState({
+    service: '',
+    doctor: '',
+    serviceName: ''
+  })
+
   useEffect(() => {
     const getAllServices = async () => {
-      const services = await getServices()
+      const { services, doctorReviews } = await getServices()
+      setDoctorReviews(doctorReviews)
       setServices(services)
     }
     getAllServices()
   }, [])
 
+  const handleChange = async (event) => {
+    if (event.target.id === 'service') {
+      const { service } = await getService(event.target.value)
+      setFormValues({
+        ...formValues,
+        [event.target.id]: service._id,
+        serviceName: service.name,
+        doctor: ''
+      })
+      setDoctors(service.doctors)
+      setDoctorSelectedDisable(false)
+    } else if (event.target.id === 'doctor') {
+      setFormValues({
+        ...formValues,
+        [event.target.id]: event.target.value
+      })
+      if (event.target.value === 'allDoctor') {
+        setSearchResult(doctors)
+      } else {
+        setSearchResult([await getDoctor(event.target.value)])
+      }
+      toggleSearched(true)
+    }
+  }
+
+  const handelClick = () => {
+    setDoctorSelectedDisable(true)
+    toggleSearched(false)
+    setFormValues({ service: '', doctor: '' })
+  }
+
+  const getDoctorReview = (id) => {
+    return doctorReviews.find((review) => _.isEqual(review._id, id))
+  }
   return (
     <div>
       <h1 className="title">Our Doctors</h1>
 
-      <select
-        id="service"
-        onChange={handleChangeService}
-        value={selectedService}
-      >
+      <select id="service" onChange={handleChange} value={formValues.service}>
         <option selected disabled value="">
           Select Service
         </option>
@@ -63,9 +78,9 @@ const Doctors = () => {
       </select>
       <select
         id="doctor"
-        onChange={handleChangedoctor}
+        onChange={handleChange}
         disabled={doctorSelectedDisable}
-        value={selectedDoctor}
+        value={formValues.doctor}
       >
         <option selected disabled value="">
           Select Doctor
@@ -79,29 +94,31 @@ const Doctors = () => {
         ))}
       </select>
       <button onClick={handelClick}>Clear Filtter</button>
+
       {searched ? (
-        <div>
-          {serachResualt.length > 1 ? (
-            <section className="DocSection">
-              {serachResualt.map((d) => (
-                <Doctor doctor={d} />
-              ))}
-            </section>
-          ) : (
-            <div>
-              {' '}
-              <h1 className="title">{serachResualt.service.name}</h1>
-              <Doctor doctor={serachResualt} />
-            </div>
-          )}
-        </div>
+        <section>
+          <h1 className="title">{formValues.serviceName}</h1>
+          <section className="DocSection">
+            {searchResult.map((doctor) => (
+              <Doctor
+                key={doctor._id}
+                doctor={doctor}
+                review={getDoctorReview(doctor._id) ?? null}
+              />
+            ))}
+          </section>
+        </section>
       ) : (
         services.map((service) => (
           <section key={service._id}>
             <h1 className="title">{service.name}</h1>
             <section className="DocSection">
               {service.doctors.map((doctor) => (
-                <Doctor key={doctor._id} doctor={doctor} />
+                <Doctor
+                  key={doctor._id}
+                  doctor={doctor}
+                  review={getDoctorReview(doctor._id) ?? null}
+                />
               ))}
             </section>
           </section>

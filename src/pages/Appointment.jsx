@@ -24,26 +24,20 @@ const Appointment = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const services = await getServices()
+      const { services } = await getServices()
       setServices(services)
     }
     getAllServices()
   }, [])
 
   const handleChange = async (event) => {
-    let resetDate = {
-      date: ''
-    }
-    let resetTime = {
-      time: ''
-    }
     setFormValues({
       ...formValues,
       [event.target.id]: event.target.value
     })
     if (event.target.id === 'service') {
-      const DoctorsByService = await getService(event.target.value)
-      setdoctors(DoctorsByService.doctors)
+      const { service } = await getService(event.target.value)
+      setdoctors(service.doctors)
       setFormValues({
         ...formValues,
         date: '',
@@ -54,14 +48,14 @@ const Appointment = () => {
     } else if (event.target.id === 'doctor') {
       setFormValues({
         ...formValues,
-        ...resetDate,
-        ...resetTime,
+        date: '',
+        time: '',
         [event.target.id]: event.target.value
       })
     } else if (event.target.id === 'date') {
       setFormValues({
         ...formValues,
-        ...resetTime,
+        time: '',
         [event.target.id]: event.target.value
       })
       const avalibleSlot = await getDoctorSlot(
@@ -102,7 +96,12 @@ const Appointment = () => {
               </option>
             ))}
           </select>
-          <select id="doctor" className="appForm-input" onChange={handleChange}>
+          <select
+            id="doctor"
+            className="appForm-input"
+            value={formValues.doctor}
+            onChange={handleChange}
+          >
             <option value="" selected disabled>
               Select Doctor
             </option>

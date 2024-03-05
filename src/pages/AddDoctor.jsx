@@ -13,7 +13,7 @@ const AddDoctor = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      const services = await getServices()
+      const { services } = await getServices()
       console.log(services)
       setServices(services)
     }
