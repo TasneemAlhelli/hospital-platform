@@ -29,7 +29,7 @@
   margin: 10px 0 30px 0;
   font-size: 28px;
   color: #0a987b;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
@@ -49,10 +49,16 @@
   padding: 12px;
 }
 
+.appForm-btn-link {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .appForm-btn {
   margin-bottom: 20px;
   padding: 10px 15px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   border-radius: 8px;
   border: 0 !important;
   outline: 0 !important;
@@ -115,7 +121,7 @@
 .addDocTitle {
   color: #0a987b;
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   margin: 10px 0 30px 0;
   padding-bottom: 20px;
   font-size: 40px;

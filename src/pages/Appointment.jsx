@@ -1,22 +1,20 @@
 import { getServices, getService } from '../services/services'
 import { getDoctorSlot } from '../services/doctors'
-import { addAppointment } from '../services/appointments'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 
 const Appointment = () => {
-  let navigate = useNavigate()
-
-  const initalState = {
+  const initialState = {
     service: '',
     doctor: '',
     date: '',
     time: '',
+    price: 0,
     notes: ''
   }
 
-  const [formValues, setFormValues] = useState(initalState)
+  const [formValues, setFormValues] = useState(initialState)
 
   const [services, setServices] = useState([])
   const [doctors, setdoctors] = useState([])
@@ -43,6 +41,7 @@ const Appointment = () => {
         date: '',
         time: '',
         doctor: '',
+        price: service.price,
         [event.target.id]: event.target.value
       })
     } else if (event.target.id === 'doctor') {
@@ -71,17 +70,11 @@ const Appointment = () => {
     }
   }
 
-  const bookAppointment = async (event) => {
-    event.preventDefault()
-    const appointment = await addAppointment(formValues)
-    navigate('/profile')
-  }
-
   return (
     <div className="app-form">
       <div className="appForm-container">
         <h1 className="appForm-title">Book An Appointment</h1>
-        <form className="appForm" onSubmit={bookAppointment}>
+        <form className="appForm">
           <select
             id="service"
             className="appForm-input"
@@ -146,9 +139,21 @@ const Appointment = () => {
             onChange={handleChange}
           ></textarea>
 
-          <button type="submit" className="appForm-btn">
-            Book Appointment
-          </button>
+          <input
+            type="text"
+            className="appForm-input"
+            placeholder={`Total: ${formValues.price} BHD`}
+            disabled
+          />
+          <Link
+            className="appForm-btn-link"
+            to="/checkout"
+            state={{ appointment: formValues }}
+          >
+            <button type="submit" className="appForm-btn">
+              Checkout
+            </button>
+          </Link>
         </form>
       </div>
     </div>

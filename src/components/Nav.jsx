@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Nav = ({ user, handleLogOut }) => {
   let options
-  if (user) {
+  if (user && user.id) {
     options = (
       <div className="pstn">
         <Link
