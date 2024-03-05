@@ -16,7 +16,7 @@
   margin-top: 120px;
   margin-bottom: 90px;
   width: 550px;
-  height: 530px;
+  height: 495px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.14) 0px 5px 15px;
   border-radius: 10px;
@@ -39,7 +39,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-bottom: 15px;
 }
 
 .appForm-input {
@@ -47,7 +46,7 @@
   border: 1px solid #c0c0c0;
   outline: 0 !important;
   box-sizing: border-box;
-  padding: 12px 20px;
+  padding: 12px;
 }
 
 .appForm-btn {
@@ -74,4 +73,72 @@
   justify-content: flex-start;
   margin-top: 20px;
   gap: 15px;
+}
+
+.addDocSection {
+  margin-top: 130px;
+  margin-bottom: 130px;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.addDocForm-container {
+  width: 650px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 5px 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 90px 30px;
+}
+
+.addDocForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: center;
+}
+
+.addDocInput {
+  border-radius: 8px;
+  border: 1px solid #c0c0c0;
+  outline: 0 !important;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  margin: 10px;
+}
+
+.addDocTitle {
+  color: #0a987b;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
+  margin: 10px 0 30px 0;
+  padding-bottom: 20px;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.addDoc-form-btn {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 15px 15px;
+  font-family: 'Lucida Sans', sans-serif;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 0 !important;
+  outline: 0 !important;
+  background: #4c5a67;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 3px 8px;
+}
+
+.timeSec {
+  font-family: 'Lucida Sans', sans-serif;
+  color: #4c5a67;
 }

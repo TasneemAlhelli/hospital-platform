@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from "react-router-dom"
 import {
   deleteAppointment,
   getAppointmentsStatus
@@ -34,6 +34,7 @@ const Profile = () => {
   const userInfo = async () => {
     const data = await getUserInfo()
     setProfile(data)
+
     let currentDate = new Date()
     let birthDate = new Date(data.birthDate)
     let timeDiff = currentDate.getTime() - birthDate.getTime()
@@ -47,37 +48,57 @@ const Profile = () => {
   }, [deleted])
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <h3>{profile.name}</h3>
-      <h2>Completed Appointments</h2>
-      {completedappointments.map((completedappointment) => (
-        <div key={completedappointment._id}>
-          <h3>{completedappointment.date}</h3>
-          <h4>{completedappointment.time}</h4>
-          <h4>{completedappointment.doctor.name}</h4>
-          <Link to={`/review/${completedappointment._id}`}>
-            <button>Leave Review</button>
+    <div className="profilePosition">
+      <h1 className="profileTitle">Profile</h1>
+      <div className="profileCard">
+        <div>
+          <Link to="/profile/edit">
+            <button className="profileBtn">Edit Profile</button>
           </Link>
         </div>
-      ))}
-      <h2>schedule Appointments</h2>
+        <div>
+          <h3>Patient Name</h3>
+          <img src="" alt="" />
+          <p>Phone Number: </p>
+          <p>Email: </p>
+          <p>Gender: </p>
+          <p>Experience: 12 years</p>
+        </div>
+      </div>
 
-      {scheduleappointments
-        ? scheduleappointments.map((scheduleappointment) => (
-            <div key={scheduleappointment._id}>
-              <h3>{format(scheduleappointment.date, 'yyyy-MM-dd')}</h3>
-              <h4>{scheduleappointment.time}</h4>
-              <h4>{scheduleappointment.doctor.name}</h4>
-              <button onClick={handelCancle} value={scheduleappointment._id}>
-                Cansel appointment
-              </button>
+      <h1 className="appTitle">Appointments</h1>
+      <div className="profileCard">
+        <div className="btn-container">
+          <label className="switch btn-color-mode-switch">
+            <input
+              value="1"
+              id="color_mode"
+              name="color_mode"
+              type="checkbox"
+            />
+            <label
+              className="btn-color-mode-switch-inner"
+              data-off="Completed"
+              data-on="Scheduled"
+              for="color_mode"
+            ></label>
+          </label>
+        </div>
+        <div className="banner">
+          <div class="reviewsCard">
+            <div class="imgWrapper">
+              <img src="./public/image/icons8-schedule-64.png"></img>
             </div>
-          ))
-        : null}
-      <Link to="/profile/edit">
-        <button>Edit prfile :</button>
-      </Link>
+
+            <div class="reviewWrapper">
+              <span class="reviewText">Description</span>
+              <p class="review">pspspspsps</p>
+            </div>
+
+            <button class="reviewBtn">Review</button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

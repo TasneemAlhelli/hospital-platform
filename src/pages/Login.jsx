@@ -1,12 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { LoginUser } from '../services/auth'
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { LoginUser } from "../services/auth"
 
 const Login = ({ setUser }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   })
 
   const handleChange = (e) => {
@@ -16,14 +16,14 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await LoginUser(formValues)
-    setFormValues({ email: '', password: '' })
+    setFormValues({ email: "", password: "" })
     setUser(payload)
-    navigate('/')
+    navigate("/")
   }
   return (
     <div className="loginSection">
       <form className="form-container" onSubmit={handleSubmit}>
-        <p className="title">Welcome back</p>
+        <p className="title">Welcome Back</p>
         <div className="form">
           <input
             id="email"
@@ -57,7 +57,7 @@ const Login = ({ setUser }) => {
         <p className="sign-up-label">
           <Link
             to="/register"
-            style={{ color: 'inherit', textDecoration: 'inherit' }}
+            style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Don't have an account?<span className="sign-up-link">Sign up</span>
           </Link>

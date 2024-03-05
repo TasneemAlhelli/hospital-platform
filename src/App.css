@@ -68,9 +68,9 @@ h1 {
 }
 
 h2 {
-  color: #4c5a67;
-  font-size: 40px;
-  font-family: 'Lucida Sans', sans-serif;
+  color: #4C5A67;
+  font-size: 48px;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .welBtn {
@@ -92,7 +92,7 @@ h2 {
   text-align: center;
   font-size: 17px;
   padding: 16px;
-  width: 250px;
+  width: 240px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -123,13 +123,7 @@ h2 {
   right: 0;
 }
 
-/* .aboutSec {
-  height: 500px;
-  background-color: #3bb49c;
-} */
 .aboutContainer {
-  height: 55vh;
-  border: 1px solid grey;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
@@ -138,8 +132,8 @@ h2 {
 .aboutContainer h2 {
   padding-top: 50px;
   padding-left: 40px;
-  color: #0a987b;
-  font-family: 'Lucida Sans', sans-serif;
+  color: #4C5A67;
+  font-family: "Lucida Sans", sans-serif;
 }
 .aboutContainer p {
   padding-bottom: 40px;
@@ -156,7 +150,7 @@ h2 {
 
 .footerContainer {
   height: 30vh;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   justify-content: center;
   align-items: center;
   background-color: #3bb49c;
@@ -237,8 +231,7 @@ h2 {
 }
 
 .servSection {
-  padding: 30px;
-  margin-bottom: 70px;
+  padding: 70px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -295,8 +288,9 @@ h2 {
 }
 
 .servTitle {
-  color: #0a987b;
-  padding: 20px;
+  color: #fff;
+  background-color: #3bb49c;
+  padding: 50px;
   text-align: center;
   font-family: 'Lucida Sans', sans-serif;
 }
@@ -306,6 +300,52 @@ h2 {
   padding-top: 60px;
   text-align: center;
   font-family: 'Lucida Sans', sans-serif;
+}
+
+.ViewMoreServBtn {
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewMoreBtn {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: #4c5a67;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 14px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.viewMoreBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.viewMoreBtn span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.viewMoreBtn:hover span {
+  padding-right: 15px;
+}
+
+.viewMoreBtn:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 .DocSection {
