@@ -2,6 +2,8 @@ import './App.css'
 import './App2.css'
 import './App3.css'
 import './App4.css'
+import './question.css'
+
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
@@ -22,7 +24,7 @@ import { useState, useEffect } from 'react'
 import { CheckSesion } from './services/auth'
 import Review from './pages/Review'
 import Payment from './pages/Payment'
-
+import AskDoctor from './pages/AskDoctor'
 function App() {
   const [user, setUser] = useState({})
   const checkToken = async () => {
@@ -60,6 +62,7 @@ function App() {
           {/* <Route path="/doctors/:doctorId" element={<DoctorDetails />} /> */}
           <Route path="/doctor-details/:id" element={<DoctorDetails />} />
           {/* <Route path="/profile/:userrId/edit" element={<EditProfile />} /> */}
+          <Route path="/ask-doctor" element={<AskDoctor />} />
           <Route
             path="/profile/edit"
             element={
