@@ -30,16 +30,16 @@ const AddService = () => {
     addService(service)
   }
   return (
-    <div className="addDocSection">
-      <div className="addDocForm-container">
-        <p class="addDocTitle"> Add Service</p>
+    <div className="addServSection">
+      <div className="addServForm-container">
+        <p class="addServTitle"> Add Service</p>
         <div>
-          <form onSubmit={handelSubmit} class="addDocForm">
+          <form onSubmit={handelSubmit} class="addServForm">
             <label htmlFor="name"></label>
             <input
               id="name"
               type="text"
-              class="addDocInput"
+              class="addServInput"
               placeholder="Name"
               onChange={handleChange}
               value={service.name}
@@ -48,7 +48,7 @@ const AddService = () => {
             <input
               id="image"
               type="text"
-              class="addDocInput"
+              class="addServInput"
               placeholder="Image"
               onChange={handleChange}
               value={service.image}
@@ -57,7 +57,7 @@ const AddService = () => {
             <input
               id="description"
               type="text"
-              class="addDocInput"
+              class="addServInput"
               placeholder="Description"
               onChange={handleChange}
               value={service.description}
@@ -66,7 +66,7 @@ const AddService = () => {
             <input
               id="phone"
               type="text"
-              class="addDocInput"
+              class="addServInput"
               placeholder="Phone Number"
               onChange={handleChange}
               value={service.phone}
@@ -75,7 +75,7 @@ const AddService = () => {
             <input
               id="price"
               type="Number"
-              class="addDocInput"
+              class="addServInput"
               placeholder="Price"
               onChange={handleChange}
               value={service.price}
@@ -84,7 +84,7 @@ const AddService = () => {
             <select
               onChange={handleChange}
               id="gender"
-              class="addDocInput"
+              class="addServInput"
               value={service.genderInterest}
             >
               <option value="" selected disabled>
@@ -97,7 +97,7 @@ const AddService = () => {
             <label htmlFor="specialization"></label>
             <select
               id="specialization"
-              class="addDocInput"
+              class="addServInput"
               placeholder="Specialization"
               onChange={handleChange}
               value={service.specialization}
@@ -108,7 +108,7 @@ const AddService = () => {
                 </option>
               ))}
             </select>
-            <button type="submit" className="addDoc-form-btn">Add Service</button>
+            <button type="submit" className="addServ-form-btn">Add Service</button>
           </form>
         </div>
       </div>

@@ -151,38 +151,31 @@
   font-family: "Lucida Sans", sans-serif;
   color: #4c5a67;
 }
-************
-
-
-.addDocSection {
+.addServSection {
   margin-top: 130px;
   margin-bottom: 130px;
   height: 750px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-content: center;
 }
 
-.addDocForm-container {
+.addServForm-container {
   width: 650px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.13) 0px 5px 15px;
   border-radius: 10px;
   box-sizing: border-box;
-  padding: 90px 30px;
+  padding: 80px 30px;
 }
 
-.addDocForm {
+.addServForm {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-  align-content: center;
 }
 
-.addDocInput {
+.addServInput {
   border-radius: 8px;
   border: 1px solid #c0c0c0;
   outline: 0 !important;
@@ -191,7 +184,7 @@
   margin: 10px;
 }
 
-.addDocTitle {
+.addServTitle {
   color: #0a987b;
   text-align: center;
   font-family: "Lucida Sans", sans-serif;
@@ -202,9 +195,8 @@
   letter-spacing: 0.5px;
 }
 
-.addDoc-form-btn {
+.addServ-form-btn {
   margin-top: 40px;
-  margin-bottom: 20px;
   padding: 15px 15px;
   font-family: "Lucida Sans", sans-serif;
   font-size: 15px;
@@ -217,13 +209,6 @@
   box-shadow: rgba(0, 0, 0, 0.13) 0px 3px 8px;
 }
 
-.timeSec {
-  font-family: "Lucida Sans", sans-serif;
-  color: #4c5a67;
-}
-
-
-************
 .editProfile-form {
   display: flex;
   flex-direction: column;
