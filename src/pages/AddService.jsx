@@ -3,14 +3,18 @@ import { addService } from '../services/services'
 
 const AddService = () => {
   const options = [
-    'diabetes',
-    'hypertension',
-    'asthma',
-    'arthritis',
-    'cancer',
-    'allergies',
-    'heart disease',
-    'mental health conditions',
+    'General Medicine',
+    'Pediatrics',
+    'Obstetrics and Gynecology',
+    'Urology',
+    'Dentistry',
+    'Dermatology',
+    'Cardiology',
+    'Orthopedics',
+    'Psychiatry',
+    'Physical Therapy',
+    'Occupational Therapy',
+    'Allergology',
     'other'
   ]
   const [service, setService] = useState([])

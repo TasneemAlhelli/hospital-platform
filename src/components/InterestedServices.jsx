@@ -11,12 +11,7 @@ const InterestedServices = () => {
   const getAllServices = async () => {
     const token = localStorage.getItem('token')
     let services = []
-    if (token) {
-      services = await getInterestedServices()
-    } else {
-      services = await getServices()?.services
-      services = services.slice(0, 4)
-    }
+    services = await getInterestedServices()
     setInterestedServices(services)
   }
 
