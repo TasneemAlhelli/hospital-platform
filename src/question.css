@@ -1,5 +1,6 @@
 /* CSS for AskDoctor component */
-h1 {
+h1,
+h2 {
   text-align: center;
   color: #333;
   font-size: 24px;
@@ -11,37 +12,24 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 270px;
-  height: 250px;
+  width: 250px;
+  height: 220px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.13) 0px 5px 15px;
   border-radius: 10px;
   box-sizing: border-box;
-  padding: 20px 30px;
 }
 
 .question-form-container input,
 .question-form-container select {
-  width: 300px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: -10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-bottom: 15px;
-}
-
-.question-form-container select {
-  appearance: none;
-  background-color: #fff;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6h12l-6 6z" /></svg>');
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 16px 16px;
-  padding-right: 30px;
 }
 
 .question-form-container button {
@@ -59,33 +47,33 @@ h1 {
   background-color: #555;
 }
 
+.allqustion {
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+}
 .question-container {
+  width: 45%;
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
 }
 
-.question-container .username {
+.content {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #211423;
+  background-color: #3bb49c;
+  padding: 10px;
+  border-radius: 5px;
+  line-height: 2;
+}
+.username {
   font-weight: bold;
-  color: #333;
+  margin-right: 10px;
+  color: #14171a;
 }
-
-.question-container .title {
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.question-container .content {
-  margin-bottom: 5px;
-}
-
-.question-container .time-ago {
-  color: #888;
-  font-size: 12px;
-  margin-bottom: 5px;
-}
-
 .ans-section {
   margin-top: 10px;
 }

@@ -96,8 +96,8 @@ const AskDoctor = () => {
         </form>
       </div>
 
-      <div>
-        <h2>All questions</h2>
+      <h2>All questions</h2>
+      <div className="allqustion">
         {questions
           ? questions.map((question) => (
               <div key={question._id} className="question-container">
