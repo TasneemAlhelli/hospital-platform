@@ -1,19 +1,19 @@
-import { getServices, getService } from '../services/services'
-import { getDoctorSlot } from '../services/doctors'
-import { addAppointment } from '../services/appointments'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { format } from 'date-fns'
+import { getServices, getService } from "../services/services"
+import { getDoctorSlot } from "../services/doctors"
+import { addAppointment } from "../services/appointments"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { format } from "date-fns"
 
 const Appointment = () => {
   let navigate = useNavigate()
 
   const initalState = {
-    service: '',
-    doctor: '',
-    date: '',
-    time: '',
-    notes: ''
+    service: "",
+    doctor: "",
+    date: "",
+    time: "",
+    notes: "",
   }
 
   const [formValues, setFormValues] = useState(initalState)
@@ -33,30 +33,30 @@ const Appointment = () => {
   const handleChange = async (event) => {
     setFormValues({
       ...formValues,
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
     })
-    if (event.target.id === 'service') {
+    if (event.target.id === "service") {
       const { service } = await getService(event.target.value)
       setdoctors(service.doctors)
       setFormValues({
         ...formValues,
-        date: '',
-        time: '',
-        doctor: '',
-        [event.target.id]: event.target.value
+        date: "",
+        time: "",
+        doctor: "",
+        [event.target.id]: event.target.value,
       })
-    } else if (event.target.id === 'doctor') {
+    } else if (event.target.id === "doctor") {
       setFormValues({
         ...formValues,
-        date: '',
-        time: '',
-        [event.target.id]: event.target.value
+        date: "",
+        time: "",
+        [event.target.id]: event.target.value,
       })
-    } else if (event.target.id === 'date') {
+    } else if (event.target.id === "date") {
       setFormValues({
         ...formValues,
-        time: '',
-        [event.target.id]: event.target.value
+        time: "",
+        [event.target.id]: event.target.value,
       })
       const avalibleSlot = await getDoctorSlot(
         formValues.doctor,
@@ -66,7 +66,7 @@ const Appointment = () => {
     } else {
       setFormValues({
         ...formValues,
-        [event.target.id]: event.target.value
+        [event.target.id]: event.target.value,
       })
     }
   }
@@ -74,13 +74,16 @@ const Appointment = () => {
   const bookAppointment = async (event) => {
     event.preventDefault()
     const appointment = await addAppointment(formValues)
-    navigate('/profile')
+    navigate("/profile")
   }
 
   return (
     <div className="app-form">
       <div className="appForm-container">
-        <h1 className="appForm-title">Book An Appointment</h1>
+        <h1 className="appForm-title">Book an Appointment</h1>
+        <p className="appForm-Txt">
+          Please fill in the form below to make an appointment
+        </p>
         <form className="appForm" onSubmit={bookAppointment}>
           <select
             id="service"
@@ -115,7 +118,7 @@ const Appointment = () => {
             id="date"
             type="date"
             className="appForm-input"
-            min={format(new Date(), 'yyyy-MM-dd')}
+            min={format(new Date(), "yyyy-MM-dd")}
             value={formValues.date}
             onChange={handleChange}
           ></input>

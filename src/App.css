@@ -62,13 +62,13 @@ h1 {
       rgba(255, 255, 255, 0),
       #3bb49c84
     ),
-    url('../public/image/overhead-view-of-medical-staff-talking-as-they-wal-2021-08-27-09-39-30-utc.jpg');
+    url("../public/image/overhead-view-of-medical-staff-talking-as-they-wal-2021-08-27-09-39-30-utc.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
 h2 {
-  color: #4C5A67;
+  color: #4c5a67;
   font-size: 48px;
   font-family: "Lucida Sans", sans-serif;
 }
@@ -106,7 +106,7 @@ h2 {
 }
 
 .welAppBtn span:after {
-  content: '»';
+  content: "»";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -132,13 +132,13 @@ h2 {
 .aboutContainer h2 {
   padding-top: 50px;
   padding-left: 40px;
-  color: #4C5A67;
+  color: #4c5a67;
   font-family: "Lucida Sans", sans-serif;
 }
 .aboutContainer p {
   padding-bottom: 40px;
   padding-left: 40px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   font-size: 16px;
   color: #4c5a67;
   display: flex;
@@ -149,7 +149,7 @@ h2 {
 }
 
 .footerContainer {
-  height: 30vh;
+  height: 100px;
   /* border: 1px solid grey; */
   justify-content: center;
   align-items: center;
@@ -216,12 +216,12 @@ h2 {
   font-weight: 600;
   color: #4c5a67;
   letter-spacing: 0.5px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .specialization {
   color: #4c5a67bd;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -230,8 +230,15 @@ h2 {
   transition-duration: 0.5s;
 }
 
+.servTitlePage {
+  color: #0a987b;
+  padding-top: 60px;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
+}
+
 .servSection {
-  padding: 70px;
+  padding: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -279,7 +286,7 @@ h2 {
   font-weight: 600;
   color: #4c5a67;
   letter-spacing: 0.5px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .servCard:hover {
@@ -289,17 +296,17 @@ h2 {
 
 .servTitle {
   color: #fff;
-  background-color: #3bb49c;
+  background-color: #3BB49C;
   padding: 50px;
   text-align: center;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .title {
   color: #0a987b;
   padding-top: 60px;
   text-align: center;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .ViewMoreServBtn {
@@ -348,6 +355,13 @@ h2 {
   right: 0;
 }
 
+.doctorsPageTitle {
+  color: #0a987b;
+  padding: 60px;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
+}
+
 .DocSection {
   padding-top: 40px;
   padding-bottom: 80px;
@@ -366,7 +380,7 @@ h2 {
   border: 1px solid rgb(209, 213, 219);
   border-radius: 0.5rem;
   color: #0a987b;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
