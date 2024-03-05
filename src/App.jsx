@@ -70,7 +70,7 @@ function App() {
             }
           />
           {/* <Route path="/profile/:userId" element={<Profile />} /> */}
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/add-doctor" element={<AddDoctor />} />
           <Route path="/add-service" element={<AddService />} />
           <Route path="/review/:id" element={<Review />} />

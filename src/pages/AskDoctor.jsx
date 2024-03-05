@@ -35,6 +35,7 @@ const AskDoctor = () => {
   const handelSubmit = async () => {
     event.preventDefault()
     setQuestions(await createQuestion(formValues))
+    console.log('questions', questions)
     setFormValues({
       service: '',
       title: '',
@@ -104,7 +105,7 @@ const AskDoctor = () => {
                 <span className="username">{question.user.name}</span>
                 <p className="title">{question.title}</p>
                 <p className="content">{question.content}</p>
-                <p className="time-ago">{question.creatAt}</p>
+                <p className="time-ago">{question.createdAt}</p>
                 <section className="ans-section">
                   {question.answer ? (
                     <h5 className="answer">ANS:{question.answer}</h5>
