@@ -38,7 +38,7 @@ const Register = () => {
     if (res.status !== 200) {
       setError(res.data)
     } else {
-      navigate('/')
+      navigate('/login')
     }
   }
   return (

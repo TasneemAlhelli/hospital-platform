@@ -311,8 +311,14 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+.add-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.viewMoreBtn {
+.viewMoreBtn,
+.add-button {
   appearance: none;
   background-color: transparent;
   border: 0.125em solid #4c5a67;
@@ -339,18 +345,21 @@ h2 {
   will-change: transform;
 }
 
-.viewMoreBtn:disabled {
+.viewMoreBtn:disabled,
+.add-button :disabled {
   pointer-events: none;
 }
 
-.viewMoreBtn:hover {
+.viewMoreBtn:hover,
+.add-button:hover {
   color: #fff;
   background-color: #4c5a67;
   box-shadow: #00000023 0 8px 15px;
   transform: translateY(-2px);
 }
 
-.viewMoreBtn:active {
+.viewMoreBtn:active,
+.add-button:active {
   box-shadow: none;
   transform: translateY(0);
 }
