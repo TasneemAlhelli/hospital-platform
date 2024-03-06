@@ -1,7 +1,6 @@
-
-import { getServices } from "../services/services"
-import { useState, useEffect } from "react"
-import moment from "moment"
+import { getServices } from '../services/services'
+import { useState, useEffect } from 'react'
+import moment from 'moment'
 
 import {
   createQuestion,
@@ -108,43 +107,45 @@ const AskDoctor = ({ user }) => {
       ) : null}
       <h1 className="allQuesTitle">All Questions</h1>
       <div className="allQustionSec">
-        {questions && questions.length > 0
-          ? questions.map((question) => (
-              <div key={question._id} className="question-container">
-                <span className="username">{question.user.name}</span>
-                <p className="quesPara">{question.title}</p>
-                <p className="content">{question.content}</p>
-                <section className="ans-section">
-                  {question.answer ? (
-                    <h5 className="answer">{question.answer}</h5>
-                  ) : (
-                    <>
-                      {user.role === 'Admin' ? (
-                        <form
-                          onSubmit={(event) =>
-                            handelAnswer(event, question._id)
+        {questions && questions.length > 0 ? (
+          questions.map((question) => (
+            <div key={question._id} className="question-container">
+              <span className="username">{question.user.name}</span>
+              <p className="quesPara">{question.title}</p>
+              <p className="content">{question.content}</p>
+              <section className="ans-section">
+                {question.answer ? (
+                  <h5 className="answer">{question.answer}</h5>
+                ) : (
+                  <>
+                    {user.role === 'Admin' ? (
+                      <form
+                        onSubmit={(event) => handelAnswer(event, question._id)}
+                      >
+                        <input
+                          placeholder="Reply"
+                          id="answers"
+                          onChange={(event) =>
+                            handelAnswerChange(event, question._id)
                           }
-                        >
-                          <input
-                            placeholder="Reply"
-                            id="answers"
-                            onChange={(event) =>
-                              handelAnswerChange(event, question._id)
-                            }
-                            value={answers[question._id] || ''}
-                          />
-                          <button className="addDocInput">Send</button>
-                        </form>
-                      ) : (
-                        <p>No Answer yet</p>
-                      )}
-                    </>
-                  )}
-                </section>
-                <p className="dateTime">{moment(question.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</p>
-              </div>
-            ))
-          : 'No Questions'}
+                          value={answers[question._id] || ''}
+                        />
+                        <button className="addDocInput">Send</button>
+                      </form>
+                    ) : (
+                      <p>No Answer yet</p>
+                    )}
+                  </>
+                )}
+              </section>
+              <p className="dateTime">
+                {moment(question.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+              </p>
+            </div>
+          ))
+        ) : (
+          <p>No Questions</p>
+        )}
       </div>
     </div>
   )
