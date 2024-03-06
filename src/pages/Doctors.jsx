@@ -66,7 +66,13 @@ const Doctors = () => {
     <div>
       <h1 className="docTitle">Our Doctors</h1>
 
-      <select id="service" onChange={handleChange} value={formValues.service}>
+      <div className="filterSec">
+      <select
+        id="service"
+        onChange={handleChange}
+        value={formValues.service}
+        className="filterInput"
+      >
         <option selected disabled value="">
           Select Service
         </option>
@@ -81,6 +87,7 @@ const Doctors = () => {
         onChange={handleChange}
         disabled={doctorSelectedDisable}
         value={formValues.doctor}
+        className="filterInput"
       >
         <option selected disabled value="">
           Select Doctor
@@ -93,7 +100,10 @@ const Doctors = () => {
           </option>
         ))}
       </select>
-      <button onClick={handelClick}>Clear Filtter</button>
+      <button onClick={handelClick} className="filterBtn">
+        Reset
+      </button>
+      </div>
 
       {searched ? (
         <section>
