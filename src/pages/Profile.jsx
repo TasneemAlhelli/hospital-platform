@@ -77,76 +77,64 @@ const Profile = () => {
         </div>
       </div>
 
-      <h1 className="appTitle">Appointments</h1>
-      <div className="profileCard">
-        <div className="btn-container">
-          <label className="switch btn-color-mode-switch">
-            <input
-              value="1"
-              id="color_mode"
-              name="color_mode"
-              type="checkbox"
-            />
-            <label
-              className="btn-color-mode-switch-inner"
-              data-off="Scheduled"
-              data-on="Completed"
-              for="color_mode"
-              onClick={() => setToggleAppointments(!toggleAppointments)}
-            ></label>
-          </label>
-        </div>
-        {/* {toggleAppointments
-          ? scheduleappointments.map((scheduleappointment) => (
-              <div className="banner">
-                <div className="reviewsCard">
-                  <div className="imgWrapper">
-                    <img src="./public/image/icons8-schedule-64.png"></img>
-                  </div>
-                  <span className="reviewText">
-                    {scheduleappointment.doctor.name}
-                  </span>
-                  <span className="review">
-                    {format(scheduleappointment.date, 'yyyy-MM-dd')}
-                    {scheduleappointment.time}
-                  </span>
-                  <div className="reviewWrapper" key={scheduleappointment._id}>
-                    <button
-                      className="reviewBtn"
-                      onClick={handelCancle}
-                      value={scheduleappointment._id}
-                    >
-                      Cancel Appointment
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          : completedappointments.map((completedappointment) => (
-              <div className="banner">
-                <div class="reviewsCard">
-                  <div class="imgWrapper">
-                    <img src="./public/image/icons8-schedule-64.png"></img>
-                  </div>
-                  <span class="reviewText">
-                    {completedappointment.doctor.name}
-                  </span>
-                  <span class="review">
-                    {format(completedappointment.date, 'yyyy-MM-dd')}
-                    {completedappointment.time}
-                  </span>
-                  <div class="reviewWrapper" key={completedappointment._id}>
-                    <Link to={`/review/${completedappointment._id}`}>
-                      <button class="reviewBtn">Review</button>
-                    </Link>
+      {profile && profile.role === 'User' ? (
+        <h1 className="appTitle">Appointments</h1>
+      ) : null}
+      {profile && profile.role === 'User' ? (
+        <div className="profileCard">
+          <div className="btn-container">
+            <label className="switch btn-color-mode-switch">
+              <input
+                value="1"
+                id="color_mode"
+                name="color_mode"
+                type="checkbox"
+              />
+              <label
+                className="btn-color-mode-switch-inner"
+                data-off="Scheduled"
+                data-on="Completed"
+                for="color_mode"
+                onClick={() => setToggleAppointments(!toggleAppointments)}
+              ></label>
+            </label>
+          </div>
+          {toggleAppointments ? (
+            scheduleappointments.length > 0 ? (
+              scheduleappointments.map((scheduleappointment) => (
+                <div className="banner" key={scheduleappointment._id}>
+                  <div className="reviewsCard">
+                    <div className="imgWrapper">
+                      <img
+                        src="./public/image/icons8-schedule-64.png"
+                        alt="Schedule Icon"
+                      />
+                    </div>
+                    <span className="reviewText">
+                      {scheduleappointment.doctor.name}
+                    </span>
+                    <span className="review">
+                      {format(scheduleappointment.date, 'yyyy-MM-dd')}
+                      {scheduleappointment.time}
+                    </span>
+                    <div className="reviewWrapper">
+                      <button
+                        className="reviewBtn"
+                        onClick={handelCancle}
+                        value={scheduleappointment._id}
+                      >
+                        Cancel Appointment
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))} */}
-        {toggleAppointments ? (
-          scheduleappointments.length > 0 ? (
-            scheduleappointments.map((scheduleappointment) => (
-              <div className="banner" key={scheduleappointment._id}>
+              ))
+            ) : (
+              <p>No scheduled appointments found.</p>
+            )
+          ) : completedappointments.length > 0 ? (
+            completedappointments.map((completedappointment) => (
+              <div className="banner" key={completedappointment._id}>
                 <div className="reviewsCard">
                   <div className="imgWrapper">
                     <img
@@ -155,56 +143,25 @@ const Profile = () => {
                     />
                   </div>
                   <span className="reviewText">
-                    {scheduleappointment.doctor.name}
+                    {completedappointment.doctor.name}
                   </span>
                   <span className="review">
-                    {format(scheduleappointment.date, 'yyyy-MM-dd')}
-                    {scheduleappointment.time}
+                    {format(completedappointment.date, 'yyyy-MM-dd')}
+                    {completedappointment.time}
                   </span>
                   <div className="reviewWrapper">
-                    <button
-                      className="reviewBtn"
-                      onClick={handelCancle}
-                      value={scheduleappointment._id}
-                    >
-                      Cancel Appointment
-                    </button>
+                    <Link to={`/review/${completedappointment._id}`}>
+                      <button className="reviewBtn">Review</button>
+                    </Link>
                   </div>
                 </div>
               </div>
             ))
           ) : (
-            <p>No scheduled appointments found.</p>
-          )
-        ) : completedappointments.length > 0 ? (
-          completedappointments.map((completedappointment) => (
-            <div className="banner" key={completedappointment._id}>
-              <div className="reviewsCard">
-                <div className="imgWrapper">
-                  <img
-                    src="./public/image/icons8-schedule-64.png"
-                    alt="Schedule Icon"
-                  />
-                </div>
-                <span className="reviewText">
-                  {completedappointment.doctor.name}
-                </span>
-                <span className="review">
-                  {format(completedappointment.date, 'yyyy-MM-dd')}
-                  {completedappointment.time}
-                </span>
-                <div className="reviewWrapper">
-                  <Link to={`/review/${completedappointment._id}`}>
-                    <button className="reviewBtn">Review</button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No completed appointments found.</p>
-        )}
-      </div>
+            <p>No completed appointments found.</p>
+          )}
+        </div>
+      ) : null}
     </div>
   )
 }
