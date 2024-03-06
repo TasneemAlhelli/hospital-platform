@@ -64,8 +64,8 @@
   font-family: 'Lucida Sans', sans-serif;
 }
 
-.banner {
-}
+/* .banner {
+} */
 
 label {
   font-size: 14px;
@@ -84,11 +84,11 @@ label {
   width: 190px;
   height: 30px;
   background: #e0e0e0;
-  border-radius: 26px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
-  /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+  /* box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset; */
   display: block;
 }
 
@@ -106,7 +106,7 @@ label {
   width: 70px;
   height: 16px;
   background: #fff;
-  border-radius: 26px;
+  border-radius: 8px;
   position: absolute;
   left: 2px;
   top: 2px;
@@ -175,6 +175,7 @@ label {
   gap: 12px;
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.123); */
 }
 .imgWrapper {
   display: flex;
@@ -205,7 +206,7 @@ label {
 
 .reviewBtn {
   padding: 8px 15px 8px 15px;
-  border-radius: 20px;
+  border-radius: 8px;
   background-color: #3bb49c;
   color: white;
   border: none;

@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react'
-import { addService } from '../services/services'
+import { useState, useEffect } from "react"
+import { addService } from "../services/services"
 
 const AddService = () => {
   const options = [
-    'General Medicine',
-    'Pediatrics',
-    'Obstetrics and Gynecology',
-    'Urology',
-    'Dentistry',
-    'Dermatology',
-    'Cardiology',
-    'Orthopedics',
-    'Psychiatry',
-    'Physical Therapy',
-    'Occupational Therapy',
-    'Allergology',
-    'other'
+    "General Medicine",
+    "Pediatrics",
+    "Obstetrics and Gynecology",
+    "Urology",
+    "Dentistry",
+    "Dermatology",
+    "Cardiology",
+    "Orthopedics",
+    "Psychiatry",
+    "Physical Therapy",
+    "Occupational Therapy",
+    "Allergology",
+    "other",
   ]
   const [service, setService] = useState([])
 
@@ -25,72 +25,93 @@ const AddService = () => {
 
   const handelSubmit = (event) => {
     event.preventDefault()
-    console.log('event', event)
-    console.log('service', service)
+    console.log("event", event)
+    console.log("service", service)
     addService(service)
   }
   return (
-    <div>
-      <form onSubmit={handelSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          type="text"
-          onChange={handleChange}
-          value={service.name}
-        />
-        <label htmlFor="image">Image:</label>
-        <input
-          id="image"
-          type="text"
-          onChange={handleChange}
-          value={service.image}
-        />
-        <label htmlFor="description">Description:</label>
-        <input
-          id="description"
-          type="text"
-          onChange={handleChange}
-          value={service.description}
-        />
-        <label htmlFor="phone">Phone:</label>
-        <input
-          id="phone"
-          type="text"
-          onChange={handleChange}
-          value={service.phone}
-        />
-        <label htmlFor="price">Price:</label>
-        <input
-          id="price"
-          type="Number"
-          onChange={handleChange}
-          value={service.price}
-        />
-        <label htmlFor="genderInterest">Gender Interest:</label>
-        <select
-          onChange={handleChange}
-          id="gender"
-          value={service.genderInterest}
-        >
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Both">Both</option>
-        </select>
-        <label htmlFor="specialization">Specialization:</label>
-        <select
-          id="specialization"
-          onChange={handleChange}
-          value={service.specialization}
-        >
-          {options.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-        <button type="submit">Add Service</button>
-      </form>
+    <div className="addServSection">
+      <div className="addServForm-container">
+        <p class="addServTitle"> Add Service</p>
+        <div>
+          <form onSubmit={handelSubmit} class="addServForm">
+            <label htmlFor="name"></label>
+            <input
+              id="name"
+              type="text"
+              class="addServInput"
+              placeholder="Name"
+              onChange={handleChange}
+              value={service.name}
+            />
+            <label htmlFor="image"></label>
+            <input
+              id="image"
+              type="text"
+              class="addServInput"
+              placeholder="Image"
+              onChange={handleChange}
+              value={service.image}
+            />
+            <label htmlFor="description"></label>
+            <input
+              id="description"
+              type="text"
+              class="addServInput"
+              placeholder="Description"
+              onChange={handleChange}
+              value={service.description}
+            />
+            <label htmlFor="phone"></label>
+            <input
+              id="phone"
+              type="text"
+              class="addServInput"
+              placeholder="Phone Number"
+              onChange={handleChange}
+              value={service.phone}
+            />
+            <label htmlFor="price"></label>
+            <input
+              id="price"
+              type="Number"
+              class="addServInput"
+              placeholder="Price"
+              onChange={handleChange}
+              value={service.price}
+            />
+            <label htmlFor="genderInterest"></label>
+            <select
+              onChange={handleChange}
+              id="gender"
+              class="addServInput"
+              value={service.genderInterest}
+            >
+              <option value="" selected disabled>
+                Select Gender
+              </option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Both">Both</option>
+            </select>
+            <label htmlFor="specialization"></label>
+            <select
+              id="specialization"
+              class="addServInput"
+              placeholder="Specialization"
+              onChange={handleChange}
+              value={service.specialization}
+            >
+              {options.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="addServ-form-btn">Add Service</button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

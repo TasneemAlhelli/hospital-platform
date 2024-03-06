@@ -31,9 +31,9 @@ const Appointment = () => {
   const handleChange = async (event) => {
     setFormValues({
       ...formValues,
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
     })
-    if (event.target.id === 'service') {
+    if (event.target.id === "service") {
       const { service } = await getService(event.target.value)
       setdoctors(service.doctors)
       setFormValues({
@@ -44,18 +44,18 @@ const Appointment = () => {
         price: service.price,
         [event.target.id]: event.target.value
       })
-    } else if (event.target.id === 'doctor') {
+    } else if (event.target.id === "doctor") {
       setFormValues({
         ...formValues,
-        date: '',
-        time: '',
-        [event.target.id]: event.target.value
+        date: "",
+        time: "",
+        [event.target.id]: event.target.value,
       })
-    } else if (event.target.id === 'date') {
+    } else if (event.target.id === "date") {
       setFormValues({
         ...formValues,
-        time: '',
-        [event.target.id]: event.target.value
+        time: "",
+        [event.target.id]: event.target.value,
       })
       const avalibleSlot = await getDoctorSlot(
         formValues.doctor,
@@ -65,7 +65,7 @@ const Appointment = () => {
     } else {
       setFormValues({
         ...formValues,
-        [event.target.id]: event.target.value
+        [event.target.id]: event.target.value,
       })
     }
   }
@@ -108,7 +108,7 @@ const Appointment = () => {
             id="date"
             type="date"
             className="appForm-input"
-            min={format(new Date(), 'yyyy-MM-dd')}
+            min={format(new Date(), "yyyy-MM-dd")}
             value={formValues.date}
             onChange={handleChange}
           ></input>

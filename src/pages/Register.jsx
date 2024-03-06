@@ -1,32 +1,32 @@
-import { useState } from 'react'
-import { RegisterUser } from '../services/auth'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react"
+import { RegisterUser } from "../services/auth"
+import { useNavigate } from "react-router-dom"
 
 const Register = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   }
 
   const [formValues, setFormValues] = useState(initialState)
   const options = [
-    'General Medicine',
-    'Pediatrics',
-    'Obstetrics and Gynecology',
-    'Urology',
-    'Dentistry',
-    'Dermatology',
-    'Cardiology',
-    'Orthopedics',
-    'Psychiatry',
-    'Physical Therapy',
-    'Occupational Therapy',
-    'Allergology',
-    'other'
+    "General Medicine",
+    "Pediatrics",
+    "Obstetrics and Gynecology",
+    "Urology",
+    "Dentistry",
+    "Dermatology",
+    "Cardiology",
+    "Orthopedics",
+    "Psychiatry",
+    "Physical Therapy",
+    "Occupational Therapy",
+    "Allergology",
+    "other",
   ]
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.id]: event.target.value })
@@ -35,12 +35,13 @@ const Register = () => {
     console.log(formValues)
     event.preventDefault()
     await RegisterUser(formValues)
-    navigate('/')
+    navigate("/")
   }
   return (
     <div className="signUpSection">
       <div className="signUp-form-container">
-        <p className="title">Create account</p>
+        <h1 className="signUpTitle">Sign Up</h1>
+        <p className="appForm-Txt">Enter the fields below to get started</p>
         <form className="form" onSubmit={handelSubmit}>
           <input
             type="text"
@@ -66,7 +67,12 @@ const Register = () => {
             onChange={handleChange}
             value={formValues.cpr}
           />
-          <select id="gender" onChange={handleChange} value={formValues.gender}>
+          <select
+            id="gender"
+            onChange={handleChange}
+            value={formValues.gender}
+            className="input"
+          >
             <option selected disabled value="">
               Select Gender
             </option>
@@ -86,6 +92,7 @@ const Register = () => {
             id="medicalConditions"
             onChange={handleChange}
             value={formValues.medicalConditions}
+            className="input"
           >
             <option selected disabled value="">
               Select Your Medical Conditions

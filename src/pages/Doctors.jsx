@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { getServices, getService } from '../services/services'
-import { getDoctor } from '../services/doctors'
-import Doctor from '../components/Doctor'
-import _ from 'lodash'
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { getServices, getService } from "../services/services"
+import { getDoctor } from "../services/doctors"
+import Doctor from "../components/Doctor"
+import _ from "lodash"
 
 const Doctors = () => {
   const [services, setServices] = useState([])
@@ -14,9 +14,9 @@ const Doctors = () => {
   const [doctorReviews, setDoctorReviews] = useState([])
 
   const [formValues, setFormValues] = useState({
-    service: '',
-    doctor: '',
-    serviceName: ''
+    service: "",
+    doctor: "",
+    serviceName: "",
   })
 
   useEffect(() => {
@@ -29,22 +29,22 @@ const Doctors = () => {
   }, [])
 
   const handleChange = async (event) => {
-    if (event.target.id === 'service') {
+    if (event.target.id === "service") {
       const { service } = await getService(event.target.value)
       setFormValues({
         ...formValues,
         [event.target.id]: service._id,
         serviceName: service.name,
-        doctor: ''
+        doctor: "",
       })
       setDoctors(service.doctors)
       setDoctorSelectedDisable(false)
-    } else if (event.target.id === 'doctor') {
+    } else if (event.target.id === "doctor") {
       setFormValues({
         ...formValues,
-        [event.target.id]: event.target.value
+        [event.target.id]: event.target.value,
       })
-      if (event.target.value === 'allDoctor') {
+      if (event.target.value === "allDoctor") {
         setSearchResult(doctors)
       } else {
         setSearchResult([await getDoctor(event.target.value)])
@@ -56,7 +56,7 @@ const Doctors = () => {
   const handelClick = () => {
     setDoctorSelectedDisable(true)
     toggleSearched(false)
-    setFormValues({ service: '', doctor: '' })
+    setFormValues({ service: "", doctor: "" })
   }
 
   const getDoctorReview = (id) => {
@@ -64,9 +64,15 @@ const Doctors = () => {
   }
   return (
     <div>
-      <h1 className="title">Our Doctors</h1>
+      <h1 className="docTitle">Our Doctors</h1>
 
-      <select id="service" onChange={handleChange} value={formValues.service}>
+      <div className="filterSec">
+      <select
+        id="service"
+        onChange={handleChange}
+        value={formValues.service}
+        className="filterInput"
+      >
         <option selected disabled value="">
           Select Service
         </option>
@@ -81,6 +87,7 @@ const Doctors = () => {
         onChange={handleChange}
         disabled={doctorSelectedDisable}
         value={formValues.doctor}
+        className="filterInput"
       >
         <option selected disabled value="">
           Select Doctor
@@ -93,7 +100,10 @@ const Doctors = () => {
           </option>
         ))}
       </select>
-      <button onClick={handelClick}>Clear Filtter</button>
+      <button onClick={handelClick} className="filterBtn">
+        Reset
+      </button>
+      </div>
 
       {searched ? (
         <section>
