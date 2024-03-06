@@ -17,7 +17,12 @@ const Nav = ({ user, handleLogOut }) => {
         >
           <li>Doctors</li>
         </Link>
-
+        <Link
+          to="/ask-doctor"
+          style={{ color: 'inherit', textDecoration: 'inherit' }}
+        >
+          <li>Ask Doctor</li>
+        </Link>
         <Link
           to="/profile"
           style={{ color: 'inherit', textDecoration: 'inherit' }}
