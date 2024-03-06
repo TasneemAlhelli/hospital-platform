@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-const Doctor = ({ doctor, review }) => {
+const Doctor = ({ doctor, review, user }) => {
   const rate = review ? Math.floor(review.avgRating) : null
   return (
     <Link
@@ -25,7 +25,7 @@ const Doctor = ({ doctor, review }) => {
               ))}{' '}
           </p>
         </div>
-        <Link to="/book-an-appointment">
+        <Link to={user._id ? '/book-an-appointment' : '/login'}>
           <button className="moreDetailButton">Book Appointment</button>
         </Link>
       </div>

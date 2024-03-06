@@ -123,6 +123,7 @@ const Doctors = ({ user }) => {
               <Doctor
                 key={doctor._id}
                 doctor={doctor}
+                user={user}
                 review={getDoctorReview(doctor._id) ?? null}
               />
             ))}
@@ -137,6 +138,7 @@ const Doctors = ({ user }) => {
                 <Doctor
                   key={doctor._id}
                   doctor={doctor}
+                  user={user}
                   review={getDoctorReview(doctor._id) ?? null}
                 />
               ))}

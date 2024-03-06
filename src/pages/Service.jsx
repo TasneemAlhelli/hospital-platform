@@ -4,7 +4,7 @@ import { getService } from '../services/services'
 import Doctor from '../components/Doctor'
 import _ from 'lodash'
 
-const Service = () => {
+const Service = ({ user }) => {
   let { id } = useParams()
   let [service, setService] = useState({})
   let [doctorReviews, setDoctorReviews] = useState([])
@@ -37,6 +37,7 @@ const Service = () => {
                 <Doctor
                   key={doctor._id}
                   doctor={doctor}
+                  user={user}
                   review={getDoctorReview(doctor._id) ?? null}
                 />
               ))
