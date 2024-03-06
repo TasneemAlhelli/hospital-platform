@@ -64,13 +64,6 @@ const Doctors = ({ user }) => {
   return (
     <div>
       <h1 className="docTitle">Our Doctors</h1>
-      {/* {user && user.role === 'User' && (
-        <div className="add-dev">
-          <Link to="/add-service">
-            <button className="add-button">Add Doctor</button>
-          </Link>
-        </div>
-      )} */}
       <div className="filterSec">
         <select
           id="service"

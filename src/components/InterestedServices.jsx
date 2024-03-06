@@ -25,7 +25,11 @@ const InterestedServices = () => {
       <h1 className="servTitle">Featured Services</h1>
       <section className="servSection">
         {interestedServices.map((service) => (
-          <Link key={service._id} to={`/services/${service._id}`}>
+          <Link
+            key={service._id}
+            to={`/services/${service._id}`}
+            style={{ color: 'inherit', textDecoration: 'inherit' }}
+          >
             <div className="servCard">
               <div className="servProfileImage">
                 <img src={service.image} alt={service._id} />

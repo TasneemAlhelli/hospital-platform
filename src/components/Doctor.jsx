@@ -25,7 +25,7 @@ const Doctor = ({ doctor, review, user }) => {
               ))}{' '}
           </p>
         </div>
-        <Link to={user._id ? '/book-an-appointment' : '/login'}>
+        <Link to={user && user.id ? '/book-an-appointment' : '/login'}>
           <button className="moreDetailButton">Book Appointment</button>
         </Link>
       </div>
