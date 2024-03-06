@@ -1,15 +1,15 @@
-import { getServices } from '../services/services'
-import { useState, useEffect } from 'react'
+import { getServices } from "../services/services"
+import { useState, useEffect } from "react"
 import {
   createQuestion,
   getAllQuestion,
-  answerToQuestion
-} from '../services/questions'
+  answerToQuestion,
+} from "../services/questions"
 const AskDoctor = () => {
   const initalState = {
-    service: '',
-    title: '',
-    content: ''
+    service: "",
+    title: "",
+    content: "",
   }
   const [services, setServices] = useState([])
   const [formValues, setFormValues] = useState(initalState)
@@ -29,42 +29,42 @@ const AskDoctor = () => {
   const handleChange = async (event) => {
     setFormValues({
       ...formValues,
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
     })
   }
   const handelSubmit = async () => {
     event.preventDefault()
     setQuestions(await createQuestion(formValues))
-    console.log('questions', questions)
+    console.log("questions", questions)
     setFormValues({
-      service: '',
-      title: '',
-      content: ''
+      service: "",
+      title: "",
+      content: "",
     })
   }
   const handelAnswer = async (event, questionId) => {
     event.preventDefault()
     console.log(answers[questionId])
     const ans = {
-      answer: answers[questionId]
+      answer: answers[questionId],
     }
     setQuestions(await answerToQuestion(ans, questionId))
   }
   const handelAnswerChange = (event, questionId) => {
     setAnswers({
       ...answers,
-      [questionId]: event.target.value
+      [questionId]: event.target.value,
     })
   }
 
   return (
     <div>
-      <h1>ASK DOCTOR</h1>
+      <h1 className="askDocTitle">Ask a Doctor</h1>
       <div class="question-form-container">
         <form onSubmit={handelSubmit}>
           <input
             type="text"
-            placeholder="Question Title"
+            placeholder="Subject"
             id="title"
             onChange={handleChange}
             value={formValues.title}
@@ -93,38 +93,38 @@ const AskDoctor = () => {
               </option>
             ))}
           </select>
-          <button type="submit"> ASK</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
 
-      <h2>All questions</h2>
-      <div className="allqustion">
+      <h1 className="allQuesTitle">All Questions</h1>
+      <div className="allQustionSec">
         {questions
           ? questions.map((question) => (
               <div key={question._id} className="question-container">
                 <span className="username">{question.user.name}</span>
-                <p>{question.title}</p>
+                <p className="quesPara">{question.title}</p>
                 <p className="content">{question.content}</p>
-                <p className="time-ago">{question.createdAt}</p>
                 <section className="ans-section">
                   {question.answer ? (
-                    <h5 className="answer">ANS:{question.answer}</h5>
+                    <h5 className="answer">{question.answer}</h5>
                   ) : (
                     <form
                       onSubmit={(event) => handelAnswer(event, question._id)}
                     >
                       <input
-                        placeholder="Ans"
+                        placeholder="Reply"
                         id="answers"
                         onChange={(event) =>
                           handelAnswerChange(event, question._id)
                         }
-                        value={answers[question._id] || ''}
+                        value={answers[question._id] || ""}
                       />
-                      <button>Answer</button>
+                      <button className="addDocInput">Send</button>
                     </form>
                   )}
                 </section>
+                <p className="dateTime">{question.createdAt}</p>
               </div>
             ))
           : null}

@@ -1,19 +1,28 @@
 /* CSS for AskDoctor component */
-h1,
-h2 {
+.askDocTitle {
+  color: #0a987b;
+  padding-top: 60px;
+  padding-bottom: 20px;
   text-align: center;
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.allQuesTitle {
+  color: #0a987b;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  text-align: center;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .question-form-container {
   margin: 0 auto;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
-  height: 220px;
+  width: 330px;
+  height: 300px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.13) 0px 5px 15px;
   border-radius: 10px;
@@ -30,36 +39,44 @@ h2 {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .question-form-container button {
   width: 100px;
-  padding: 10px;
-  background-color: #333;
+  background-color: #4c5a67;
   color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   margin-left: 50px;
+  padding: 12px 15px;
+  font-family: "Lucida Sans", sans-serif;
+  border-radius: 8px;
+  border: 0 !important;
+  outline: 0 !important;
+  color: white;
+  cursor: pointer;
 }
 
-.question-form-container button:hover {
+/* .question-form-container button:hover {
   background-color: #555;
-}
+} */
 
-.allqustion {
-  margin-left: 5%;
+.allQustionSec {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
   align-content: stretch;
   gap: 30px;
+  font-family: "Lucida Sans", sans-serif;
 }
 .question-container {
-  width: 330px;
-  height: 260px;
-  background: #c4e2dac2;
+  width: 430px;
+  height: 270px;
+  margin-bottom: 30px;
+  padding: 30px;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0px 0px 30px #0000001f;
   align-items: center;
@@ -67,19 +84,21 @@ h2 {
 }
 
 .content {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  width: 350px;
+  height: 80px;
+  /* margin: 30px; */
   font-size: 1.2em;
-  color: #211423;
-  background-color: #f8fefd;
+  font-family: "Lucida Sans", sans-serif;
+  color: #4c5a67;
+  background-color: #c4e2dac2;
   padding: 10px;
   border-radius: 5px;
   line-height: 2;
 }
 .username {
+  font-size: 20px;
   font-weight: bold;
-  margin-right: 10px;
-  color: #14171a;
+  color: #0a987b;
 }
 
 .ans-section form input {
@@ -90,14 +109,37 @@ h2 {
 }
 
 .ans-section form button {
-  padding: 5px;
-  background-color: #333;
+  padding: 6px 13px 6px 13px;
+  background-color: #4c5a67;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.ans-section form button:hover {
+/* .ans-section form button:hover {
   background-color: #555;
+} */
+
+.quesPara {
+  color: #4c5a67;
+  font-size: 16px;
+}
+
+.dateTime {
+  color: #a2a2a2;
+  font-size: 14px;
+}
+
+.answer {
+  color: #0a987b;
+  font-size: 16px;
+}
+
+.answerBtn {
+  font-family: "Lucida Sans", sans-serif;
+  border-radius: 8px;
+  background: #4c5a67;
+  color: white;
+  cursor: pointer;
 }
