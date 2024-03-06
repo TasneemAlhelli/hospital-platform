@@ -11,10 +11,12 @@ const AskDoctor = () => {
     title: '',
     content: ''
   }
+
   const [services, setServices] = useState([])
   const [formValues, setFormValues] = useState(initalState)
   const [questions, setQuestions] = useState([])
   const [answers, setAnswers] = useState({})
+
   useEffect(() => {
     const getAllServices = async () => {
       const { services } = await getServices()
@@ -26,25 +28,26 @@ const AskDoctor = () => {
     getQuestions()
     getAllServices()
   }, [])
+
   const handleChange = async (event) => {
     setFormValues({
       ...formValues,
       [event.target.id]: event.target.value
     })
   }
+
   const handelSubmit = async () => {
     event.preventDefault()
     setQuestions(await createQuestion(formValues))
-    console.log('questions', questions)
     setFormValues({
       service: '',
       title: '',
       content: ''
     })
   }
+
   const handelAnswer = async (event, questionId) => {
     event.preventDefault()
-    console.log(answers[questionId])
     const ans = {
       answer: answers[questionId]
     }
