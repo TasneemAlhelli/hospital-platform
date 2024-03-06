@@ -40,6 +40,7 @@ const Review = () => {
             placeholder="Rate General Assembly Hospital"
             onChange={handleChange}
             value={formValues.hospitalRate}
+            required
           />
           <input
             id="rate"
@@ -50,6 +51,7 @@ const Review = () => {
             placeholder="Rate Doctor"
             onChange={handleChange}
             value={formValues.rate}
+            required
           />
           <textarea
             id="comment"
