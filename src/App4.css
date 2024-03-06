@@ -10,7 +10,7 @@
   transition-duration: 0.5s;
   color: #4c5a67;
   font-size: 16px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .profilePosition {
@@ -24,7 +24,7 @@
 .profileTitle {
   color: #0a987b;
   padding-bottom: 20px;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .profileBtn {
@@ -32,7 +32,7 @@
   border: 1px solid rgb(209, 213, 219);
   border-radius: 0.5rem;
   color: #0a987b;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -61,11 +61,8 @@
   color: #0a987b;
   padding-bottom: 20px;
   text-align: center;
-  font-family: 'Lucida Sans', sans-serif;
+  font-family: "Lucida Sans", sans-serif;
 }
-
-/* .banner {
-} */
 
 label {
   font-size: 14px;
@@ -116,7 +113,7 @@ label {
   padding: 5px 14px;
 }
 
-.btn-color-mode-switch input[type='checkbox'] {
+.btn-color-mode-switch input[type="checkbox"] {
   cursor: pointer;
   width: 50px;
   height: 25px;
@@ -128,14 +125,14 @@ label {
 }
 
 .btn-color-mode-switch
-  input[type='checkbox']:checked
+  input[type="checkbox"]:checked
   + label.btn-color-mode-switch-inner {
   background: #e0e0e0;
   color: #424242;
 }
 
 .btn-color-mode-switch
-  input[type='checkbox']:checked
+  input[type="checkbox"]:checked
   + label.btn-color-mode-switch-inner:after {
   content: attr(data-on);
   left: 90px;
@@ -143,14 +140,14 @@ label {
 }
 
 .btn-color-mode-switch
-  input[type='checkbox']:checked
+  input[type="checkbox"]:checked
   + label.btn-color-mode-switch-inner:before {
   content: attr(data-off);
   right: auto;
   left: 20px;
 }
 
-.btn-color-mode-switch input[type='checkbox']:checked ~ .alert {
+.btn-color-mode-switch input[type="checkbox"]:checked ~ .alert {
   display: block;
 }
 
@@ -174,7 +171,7 @@ label {
   justify-content: space-between;
   gap: 12px;
   padding: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lucida Sans", sans-serif;
   /* box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.123); */
 }
 .imgWrapper {
@@ -227,4 +224,121 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.footerContainer {
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.footerNav {
+  margin-top: 60px;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+
+.footerTxt {
+  padding-bottom: 25px;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  padding-bottom: 5px;
+}
+
+.socialCards {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+  gap: 5px;
+}
+
+.socialContainer {
+  width: 25px;
+  height: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  margin-top: 60px;
+}
+
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: 0.3s;
+}
+
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: 0.3s;
+}
+
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: 0.3s;
+}
+
+.containerFour:hover {
+  background-color: green;
+  transition-duration: 0.3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.imgStyle {
 }
