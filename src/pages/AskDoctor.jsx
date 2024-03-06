@@ -1,15 +1,15 @@
-import { getServices } from "../services/services"
-import { useState, useEffect } from "react"
+import { getServices } from '../services/services'
+import { useState, useEffect } from 'react'
 import {
   createQuestion,
   getAllQuestion,
-  answerToQuestion,
-} from "../services/questions"
-const AskDoctor = () => {
+  answerToQuestion
+} from '../services/questions'
+const AskDoctor = ({ user }) => {
   const initalState = {
-    service: "",
-    title: "",
-    content: "",
+    service: '',
+    title: '',
+    content: ''
   }
 
   const [services, setServices] = useState([])
@@ -32,7 +32,7 @@ const AskDoctor = () => {
   const handleChange = async (event) => {
     setFormValues({
       ...formValues,
-      [event.target.id]: event.target.value,
+      [event.target.id]: event.target.value
     })
   }
 
@@ -40,23 +40,23 @@ const AskDoctor = () => {
     event.preventDefault()
     setQuestions(await createQuestion(formValues))
     setFormValues({
-      service: "",
-      title: "",
-      content: "",
+      service: '',
+      title: '',
+      content: ''
     })
   }
 
   const handelAnswer = async (event, questionId) => {
     event.preventDefault()
     const ans = {
-      answer: answers[questionId],
+      answer: answers[questionId]
     }
     setQuestions(await answerToQuestion(ans, questionId))
   }
   const handelAnswerChange = (event, questionId) => {
     setAnswers({
       ...answers,
-      [questionId]: event.target.value,
+      [questionId]: event.target.value
     })
   }
 
@@ -112,19 +112,27 @@ const AskDoctor = () => {
                   {question.answer ? (
                     <h5 className="answer">{question.answer}</h5>
                   ) : (
-                    <form
-                      onSubmit={(event) => handelAnswer(event, question._id)}
-                    >
-                      <input
-                        placeholder="Reply"
-                        id="answers"
-                        onChange={(event) =>
-                          handelAnswerChange(event, question._id)
-                        }
-                        value={answers[question._id] || ""}
-                      />
-                      <button className="addDocInput">Send</button>
-                    </form>
+                    <>
+                      {user.role === 'Admin' ? (
+                        <form
+                          onSubmit={(event) =>
+                            handelAnswer(event, question._id)
+                          }
+                        >
+                          <input
+                            placeholder="Reply"
+                            id="answers"
+                            onChange={(event) =>
+                              handelAnswerChange(event, question._id)
+                            }
+                            value={answers[question._id] || ''}
+                          />
+                          <button className="addDocInput">Send</button>
+                        </form>
+                      ) : (
+                        <p>No Answer yet</p>
+                      )}
+                    </>
                   )}
                 </section>
                 <p className="dateTime">{question.createdAt}</p>

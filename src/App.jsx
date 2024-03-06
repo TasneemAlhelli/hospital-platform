@@ -62,7 +62,7 @@ function App() {
           {/* <Route path="/doctors/:doctorId" element={<DoctorDetails />} /> */}
           <Route path="/doctor-details/:id" element={<DoctorDetails />} />
           {/* <Route path="/profile/:userrId/edit" element={<EditProfile />} /> */}
-          <Route path="/ask-doctor" element={<AskDoctor />} />
+          <Route path="/ask-doctor" element={<AskDoctor user={user} />} />
           <Route
             path="/profile/edit"
             element={
@@ -75,7 +75,7 @@ function App() {
           <Route path="/add-service" element={<AddService />} />
           <Route path="/review/:id" element={<Review />} />
           <Route path="/checkout" element={<Payment />} />
-          <Route path="/checkout" element={<Payment />} />
+          {/* <Route path="/checkout" element={<Payment />} /> */}
         </Routes>
       </main>
 
