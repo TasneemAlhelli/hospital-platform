@@ -86,7 +86,7 @@ h2 {
 .welAppBtn {
   display: inline-block;
   border-radius: 8px;
-  background-color: #4c5a67;
+  background-color: #4c5a67c0;
   border: none;
   color: #ffffff;
   text-align: center;
