@@ -25,6 +25,7 @@ const Profile = () => {
     const status = 'completed'
     const data = await getAppointmentsStatus(status)
     setCompletedAppoitments(data)
+    console.log('Data', data)
   }
 
   const scheduleAppointments = async () => {
@@ -90,7 +91,7 @@ const Profile = () => {
             ></label>
           </label>
         </div>
-        {toggleAppointments
+        {/* {toggleAppointments
           ? scheduleappointments.map((scheduleappointment) => (
               <div className="banner">
                 <div className="reviewsCard">
@@ -136,7 +137,68 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
+        {toggleAppointments ? (
+          scheduleappointments.length > 0 ? (
+            scheduleappointments.map((scheduleappointment) => (
+              <div className="banner" key={scheduleappointment._id}>
+                <div className="reviewsCard">
+                  <div className="imgWrapper">
+                    <img
+                      src="./public/image/icons8-schedule-64.png"
+                      alt="Schedule Icon"
+                    />
+                  </div>
+                  <span className="reviewText">
+                    {scheduleappointment.doctor.name}
+                  </span>
+                  <span className="review">
+                    {format(scheduleappointment.date, 'yyyy-MM-dd')}
+                    {scheduleappointment.time}
+                  </span>
+                  <div className="reviewWrapper">
+                    <button
+                      className="reviewBtn"
+                      onClick={handelCancle}
+                      value={scheduleappointment._id}
+                    >
+                      Cancel Appointment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No scheduled appointments found.</p>
+          )
+        ) : completedappointments.length > 0 ? (
+          completedappointments.map((completedappointment) => (
+            <div className="banner" key={completedappointment._id}>
+              <div className="reviewsCard">
+                <div className="imgWrapper">
+                  <img
+                    src="./public/image/icons8-schedule-64.png"
+                    alt="Schedule Icon"
+                  />
+                </div>
+                <span className="reviewText">
+                  {completedappointment.doctor.name}
+                </span>
+                <span className="review">
+                  {format(completedappointment.date, 'yyyy-MM-dd')}
+                  {completedappointment.time}
+                </span>
+                <div className="reviewWrapper">
+                  <Link to={`/review/${completedappointment._id}`}>
+                    <button className="reviewBtn">Review</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No completed appointments found.</p>
+        )}
       </div>
     </div>
   )
