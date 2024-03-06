@@ -25,7 +25,6 @@ const Profile = () => {
     const status = 'completed'
     const data = await getAppointmentsStatus(status)
     setCompletedAppoitments(data)
-    console.log('Data', data)
   }
 
   const scheduleAppointments = async () => {
@@ -44,7 +43,7 @@ const Profile = () => {
     let timeDiff = currentDate.getTime() - birthDate.getTime()
     setAge(Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25)))
   }
-
+  const [avatar, setAvatar] = useState(false)
   useEffect(() => {
     userInfo()
     complatedAppointments()
@@ -62,7 +61,14 @@ const Profile = () => {
         </div>
         <div>
           <h3>{profile.name}</h3>
-          <img src="" alt="" />
+          <img
+            src={
+              profile.gender == 'Female'
+                ? 'https://img.freepik.com/premium-vector/career-nurse-icon-flat-illustration-career-nurse-vector-icon-isolated-white-background_98396-41414.jpg?w=740'
+                : 'https://img.freepik.com/premium-vector/flat-doctor-avatar-website-chat-window_824631-1795.jpg?w=740'
+            }
+            alt=""
+          />
 
           <p>Email: {profile.email}</p>
           <p>Gender:{profile.gender} </p>
