@@ -35,7 +35,6 @@ const Profile = () => {
 
   const userInfo = async () => {
     const data = await getUserInfo()
-    console.log(data)
     setProfile(data)
 
     let currentDate = new Date()

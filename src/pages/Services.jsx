@@ -7,7 +7,6 @@ const Services = ({ user }) => {
     const getAllServices = async () => {
       const { services } = await getServices()
       setServices(services)
-      console.log('user', user)
     }
     getAllServices()
   }, [])
