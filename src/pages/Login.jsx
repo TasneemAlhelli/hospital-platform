@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { LoginUser } from '../services/auth'
-import { text } from 'express'
 
 const Login = ({ setUser }) => {
   let navigate = useNavigate()
@@ -47,9 +46,6 @@ const Login = ({ setUser }) => {
             value={formValues.password}
             required
           />
-          <button onClick={togglePasswordVisibility}>
-            {showPassword ? 'Hide' : 'Show'} Password
-          </button>
         </div>
 
         <p className="page-link">
