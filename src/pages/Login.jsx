@@ -9,6 +9,7 @@ const Login = ({ setUser }) => {
     email: "",
     password: "",
   })
+  const [error, setError] = useState('')
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState)
   }
@@ -18,10 +19,13 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await LoginUser(formValues)
-    setFormValues({ email: "", password: "" })
-    setUser(payload)
-    navigate("/")
+    const res = await LoginUser(formValues)
+    if (res.status && res.status !== 200) {
+      setError(res.data)
+    } else {
+      setUser(res)
+      navigate('/')
+    }
   }
   return (
     <div className="loginSection">
@@ -48,6 +52,7 @@ const Login = ({ setUser }) => {
           />
         </div>
 
+        {error ? <p className="error">{error}</p> : null}
         <p className="page-link">
           <span className="page-link-label">Forgot Password?</span>
         </p>

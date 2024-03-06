@@ -35,7 +35,6 @@ const Profile = () => {
 
   const userInfo = async () => {
     const data = await getUserInfo()
-    console.log(data)
     setProfile(data)
 
     let currentDate = new Date()
@@ -43,7 +42,7 @@ const Profile = () => {
     let timeDiff = currentDate.getTime() - birthDate.getTime()
     setAge(Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25)))
   }
-
+  const [avatar, setAvatar] = useState(false)
   useEffect(() => {
     userInfo()
     complatedAppointments()
@@ -61,7 +60,14 @@ const Profile = () => {
         </div>
         <div>
           <h3>{profile.name}</h3>
-          <img src="" alt="" />
+          <img
+            src={
+              profile.gender == 'Female'
+                ? 'https://img.freepik.com/premium-vector/career-nurse-icon-flat-illustration-career-nurse-vector-icon-isolated-white-background_98396-41414.jpg?w=740'
+                : 'https://img.freepik.com/premium-vector/flat-doctor-avatar-website-chat-window_824631-1795.jpg?w=740'
+            }
+            alt=""
+          />
 
           <p>Email: {profile.email}</p>
           <p>Gender:{profile.gender} </p>
@@ -90,7 +96,7 @@ const Profile = () => {
             ></label>
           </label>
         </div>
-        {toggleAppointments
+        {/* {toggleAppointments
           ? scheduleappointments.map((scheduleappointment) => (
               <div className="banner">
                 <div className="reviewsCard">
@@ -136,7 +142,68 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))} */}
+        {toggleAppointments ? (
+          scheduleappointments.length > 0 ? (
+            scheduleappointments.map((scheduleappointment) => (
+              <div className="banner" key={scheduleappointment._id}>
+                <div className="reviewsCard">
+                  <div className="imgWrapper">
+                    <img
+                      src="./public/image/icons8-schedule-64.png"
+                      alt="Schedule Icon"
+                    />
+                  </div>
+                  <span className="reviewText">
+                    {scheduleappointment.doctor.name}
+                  </span>
+                  <span className="review">
+                    {format(scheduleappointment.date, 'yyyy-MM-dd')}
+                    {scheduleappointment.time}
+                  </span>
+                  <div className="reviewWrapper">
+                    <button
+                      className="reviewBtn"
+                      onClick={handelCancle}
+                      value={scheduleappointment._id}
+                    >
+                      Cancel Appointment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No scheduled appointments found.</p>
+          )
+        ) : completedappointments.length > 0 ? (
+          completedappointments.map((completedappointment) => (
+            <div className="banner" key={completedappointment._id}>
+              <div className="reviewsCard">
+                <div className="imgWrapper">
+                  <img
+                    src="./public/image/icons8-schedule-64.png"
+                    alt="Schedule Icon"
+                  />
+                </div>
+                <span className="reviewText">
+                  {completedappointment.doctor.name}
+                </span>
+                <span className="review">
+                  {format(completedappointment.date, 'yyyy-MM-dd')}
+                  {completedappointment.time}
+                </span>
+                <div className="reviewWrapper">
+                  <Link to={`/review/${completedappointment._id}`}>
+                    <button className="reviewBtn">Review</button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No completed appointments found.</p>
+        )}
       </div>
     </div>
   )

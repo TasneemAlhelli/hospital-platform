@@ -62,7 +62,7 @@ h1 {
       rgba(255, 255, 255, 0),
       #3bb49c84
     ),
-    url("../public/image/overhead-view-of-medical-staff-talking-as-they-wal-2021-08-27-09-39-30-utc.jpg");
+    url('../public/image/overhead-view-of-medical-staff-talking-as-they-wal-2021-08-27-09-39-30-utc.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -70,7 +70,7 @@ h1 {
 h2 {
   color: #4c5a67;
   font-size: 48px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .welBtn {
@@ -106,7 +106,7 @@ h2 {
 }
 
 .welAppBtn span:after {
-  content: "»";
+  content: '»';
   position: absolute;
   opacity: 0;
   top: 0;
@@ -133,12 +133,12 @@ h2 {
   padding-top: 50px;
   padding-left: 40px;
   color: #4c5a67;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 .aboutContainer p {
   padding-bottom: 40px;
   padding-left: 40px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-size: 16px;
   color: #4c5a67;
   display: flex;
@@ -213,12 +213,12 @@ h2 {
   font-weight: 600;
   color: #4c5a67;
   letter-spacing: 0.5px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .specialization {
   color: #4c5a67bd;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -231,7 +231,7 @@ h2 {
   color: #0a987b;
   padding-top: 60px;
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .servSection {
@@ -282,7 +282,7 @@ h2 {
   font-weight: 600;
   color: #4c5a67;
   letter-spacing: 0.5px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .servCard:hover {
@@ -295,14 +295,14 @@ h2 {
   background-color: #3bb49c;
   padding: 50px;
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .title {
   color: #0a987b;
   padding-top: 60px;
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .ViewMoreServBtn {
@@ -311,8 +311,14 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+.add-dev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.viewMoreBtn {
+.viewMoreBtn,
+.add-button {
   appearance: none;
   background-color: transparent;
   border: 0.125em solid #4c5a67;
@@ -322,7 +328,7 @@ h2 {
   cursor: pointer;
   display: inline-block;
   font-size: 13px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-weight: 400;
   line-height: normal;
   margin: 0;
@@ -339,18 +345,21 @@ h2 {
   will-change: transform;
 }
 
-.viewMoreBtn:disabled {
+.viewMoreBtn:disabled,
+.add-button :disabled {
   pointer-events: none;
 }
 
-.viewMoreBtn:hover {
+.viewMoreBtn:hover,
+.add-button:hover {
   color: #fff;
   background-color: #4c5a67;
   box-shadow: #00000023 0 8px 15px;
   transform: translateY(-2px);
 }
 
-.viewMoreBtn:active {
+.viewMoreBtn:active,
+.add-button:active {
   box-shadow: none;
   transform: translateY(0);
 }
@@ -359,7 +368,7 @@ h2 {
   color: #0a987b;
   padding: 60px;
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .DocSection {
@@ -380,7 +389,7 @@ h2 {
   border: 1px solid rgb(209, 213, 219);
   border-radius: 0.5rem;
   color: #0a987b;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -398,4 +407,8 @@ h2 {
 .checked {
   color: gold;
   margin-right: 5px;
+}
+
+.error {
+  color: red;
 }

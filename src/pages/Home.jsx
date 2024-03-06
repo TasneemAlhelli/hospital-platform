@@ -1,12 +1,11 @@
-import Welcoming from "../components/Welcoming"
-import About from "../components/About"
-import InterestedServices from "../components/InterestedServices"
+import Welcoming from '../components/Welcoming'
+import About from '../components/About'
+import InterestedServices from '../components/InterestedServices'
 
-
-const Home = () => {
+const Home = ({ user }) => {
   return (
     <div>
-      <Welcoming />
+      <Welcoming user={user} />
       <About />
       <InterestedServices />
     </div>
