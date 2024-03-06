@@ -108,8 +108,8 @@ const Doctors = ({ user }) => {
         <button onClick={handelClick} className="filterBtn">
           Reset
         </button>
-        {user && user.role === 'User' && (
-          <Link to="/add-service">
+        {user && user.role === 'Admin' && (
+          <Link to="/add-doctor">
             <button className="add-button">Add Doctor</button>
           </Link>
         )}

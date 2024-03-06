@@ -1,32 +1,32 @@
-import { useState } from "react"
-import { RegisterUser } from "../services/auth"
-import { useNavigate } from "react-router-dom"
+import { useState } from 'react'
+import { RegisterUser } from '../services/auth'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   }
 
   const [formValues, setFormValues] = useState(initialState)
   const options = [
-    "General Medicine",
-    "Pediatrics",
-    "Obstetrics and Gynecology",
-    "Urology",
-    "Dentistry",
-    "Dermatology",
-    "Cardiology",
-    "Orthopedics",
-    "Psychiatry",
-    "Physical Therapy",
-    "Occupational Therapy",
-    "Allergology",
-    "other",
+    'General Medicine',
+    'Pediatrics',
+    'Obstetrics and Gynecology',
+    'Urology',
+    'Dentistry',
+    'Dermatology',
+    'Cardiology',
+    'Orthopedics',
+    'Psychiatry',
+    'Physical Therapy',
+    'Occupational Therapy',
+    'Allergology',
+    'other'
   ]
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.id]: event.target.value })
@@ -35,7 +35,7 @@ const Register = () => {
     console.log(formValues)
     event.preventDefault()
     await RegisterUser(formValues)
-    navigate("/")
+    navigate('/login')
   }
   return (
     <div className="signUpSection">
