@@ -13,6 +13,7 @@ const Profile = () => {
   const [deleted, setDeleted] = useState(false)
   const [profile, setProfile] = useState({})
   const [toggleAppointments, setToggleAppointments] = useState(true)
+  const [age, setAge] = useState('')
   const handelCancle = async (event) => {
     event.preventDefault()
     await deleteAppointment(event.target.value)
@@ -34,12 +35,13 @@ const Profile = () => {
 
   const userInfo = async () => {
     const data = await getUserInfo()
+    console.log(data)
     setProfile(data)
 
     let currentDate = new Date()
     let birthDate = new Date(data.birthDate)
     let timeDiff = currentDate.getTime() - birthDate.getTime()
-    let age = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25))
+    setAge(Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25)))
   }
 
   useEffect(() => {
@@ -58,12 +60,14 @@ const Profile = () => {
           </Link>
         </div>
         <div>
-          <h3>Patient Name</h3>
+          <h3>{profile.name}</h3>
           <img src="" alt="" />
-          <p>Phone Number: </p>
-          <p>Email: </p>
-          <p>Gender: </p>
-          <p>Experience: 12 years</p>
+
+          <p>Email: {profile.email}</p>
+          <p>Gender:{profile.gender} </p>
+          <p>Age : {age}</p>
+          <p>CPR : {profile.cpr}</p>
+          <p>Medical Conditions:{profile.medicalConditions} </p>
         </div>
       </div>
 
@@ -86,28 +90,23 @@ const Profile = () => {
             ></label>
           </label>
         </div>
-        {/* <div className="banner"> */}
-        {/* <div class="reviewsCard"> */}
-        {/* <div class="imgWrapper">
-          <img src="./public/image/icons8-schedule-64.png"></img>
-        </div> */}
         {toggleAppointments
           ? scheduleappointments.map((scheduleappointment) => (
               <div className="banner">
-                <div class="reviewsCard">
-                  <div class="imgWrapper">
+                <div className="reviewsCard">
+                  <div className="imgWrapper">
                     <img src="./public/image/icons8-schedule-64.png"></img>
                   </div>
-                  <span class="reviewText">
+                  <span className="reviewText">
                     {scheduleappointment.doctor.name}
                   </span>
-                  <span class="review">
+                  <span className="review">
                     {format(scheduleappointment.date, 'yyyy-MM-dd')}
                     {scheduleappointment.time}
                   </span>
-                  <div class="reviewWrapper" key={scheduleappointment._id}>
+                  <div className="reviewWrapper" key={scheduleappointment._id}>
                     <button
-                      class="reviewBtn"
+                      className="reviewBtn"
                       onClick={handelCancle}
                       value={scheduleappointment._id}
                     >
@@ -138,9 +137,6 @@ const Profile = () => {
                 </div>
               </div>
             ))}
-
-        {/* </div> */}
-        {/* </div> */}
       </div>
     </div>
   )
