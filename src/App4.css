@@ -226,12 +226,6 @@ label {
   justify-content: center;
 }
 
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: "Lucida Sans", sans-serif;
-} */
-
 .footerContainer {
   padding: 30px;
   text-align: left;
@@ -241,12 +235,17 @@ label {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  font-family: "Lucida Sans", sans-serif;
 }
 
 .footerNav {
-  display: flex;
-  flex-direction: column;
+  margin-top: 60px;
+  display: inline-flex;
+  flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
 }
 
 .footerTxt {
@@ -271,16 +270,15 @@ footer a {
 }
 
 .socialCards {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
   gap: 5px;
 }
 
-/* for all social containers*/
 .socialContainer {
   width: 25px;
   height: 20px;
@@ -290,23 +288,24 @@ footer a {
   justify-content: center;
   overflow: hidden;
   transition-duration: 0.3s;
+  margin-top: 60px;
 }
-/* instagram*/
+
 .containerOne:hover {
   background-color: #d62976;
   transition-duration: 0.3s;
 }
-/* twitter*/
+
 .containerTwo:hover {
   background-color: #00acee;
   transition-duration: 0.3s;
 }
-/* linkdin*/
+
 .containerThree:hover {
   background-color: #0072b1;
   transition-duration: 0.3s;
 }
-/* Whatsapp*/
+
 .containerFour:hover {
   background-color: green;
   transition-duration: 0.3s;
@@ -339,4 +338,7 @@ footer a {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.imgStyle {
 }
