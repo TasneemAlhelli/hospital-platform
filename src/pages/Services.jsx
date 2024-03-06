@@ -13,7 +13,7 @@ const Services = () => {
 
   return (
     <div>
-      <h1 className="servTitle">Our Services</h1>
+      <h1 className="servTitlePage">Our Services</h1>
       <section className="servSection">
         {services.map((service) => (
           <Link key={service._id} to={service._id}>
