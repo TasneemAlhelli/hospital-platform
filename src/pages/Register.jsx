@@ -112,7 +112,15 @@ const Register = () => {
             onChange={handleChange}
             value={formValues.confirmPassword}
           />
-          <button className="form-btn" type="submit">
+          <button
+            className="form-btn"
+            type="submit"
+            disabled={
+              !formValues.email ||
+              (!formValues.password &&
+                formValues.confirmPassword === formValues.password)
+            }
+          >
             Create account
           </button>
         </form>

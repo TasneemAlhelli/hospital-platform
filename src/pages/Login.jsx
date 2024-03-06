@@ -1,14 +1,18 @@
-import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
-import { LoginUser } from "../services/auth"
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { LoginUser } from '../services/auth'
+import { text } from 'express'
 
 const Login = ({ setUser }) => {
   let navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false)
   const [formValues, setFormValues] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: ''
   })
-
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState)
+  }
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
@@ -16,9 +20,9 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await LoginUser(formValues)
-    setFormValues({ email: "", password: "" })
+    setFormValues({ email: '', password: '' })
     setUser(payload)
-    navigate("/")
+    navigate('/')
   }
   return (
     <div className="loginSection">
@@ -36,13 +40,16 @@ const Login = ({ setUser }) => {
           />
           <input
             id="password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             className="input"
             placeholder="Password"
             onChange={handleChange}
             value={formValues.password}
             required
           />
+          <button onClick={togglePasswordVisibility}>
+            {showPassword ? 'Hide' : 'Show'} Password
+          </button>
         </div>
 
         <p className="page-link">
@@ -57,7 +64,7 @@ const Login = ({ setUser }) => {
         <p className="sign-up-label">
           <Link
             to="/register"
-            style={{ color: "inherit", textDecoration: "inherit" }}
+            style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
             Don't have an account?<span className="sign-up-link">Sign up</span>
           </Link>
