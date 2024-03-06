@@ -1,6 +1,6 @@
-import { getInterestedServices, getServices } from "../services/services"
-import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { getInterestedServices, getServices } from '../services/services'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 const InterestedServices = () => {
   const [interestedServices, setInterestedServices] = useState([])
 
@@ -9,10 +9,15 @@ const InterestedServices = () => {
   }, [])
 
   const getAllServices = async () => {
-    const token = localStorage.getItem("token")
-    let services = []
-    services = await getInterestedServices()
-    setInterestedServices(services)
+    const token = localStorage.getItem('token')
+    let addServices = []
+    if (token) {
+      addServices = await getInterestedServices()
+    } else {
+      let { services } = await getServices()
+      addServices = services.slice(0, 4)
+    }
+    setInterestedServices(addServices)
   }
 
   return (
