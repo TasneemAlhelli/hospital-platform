@@ -62,47 +62,50 @@ const AskDoctor = ({ user }) => {
 
   return (
     <div>
-      <h1 className="askDocTitle">Ask a Doctor</h1>
-      <div class="question-form-container">
-        <form onSubmit={handelSubmit}>
-          <input
-            type="text"
-            placeholder="Subject"
-            id="title"
-            onChange={handleChange}
-            value={formValues.title}
-          />
-          <input
-            type="text"
-            placeholder="Question"
-            id="content"
-            onChange={handleChange}
-            value={formValues.content}
-          />
-          <label htmlFor="service"></label>
-          <select
-            id="service"
-            className="addDocInput"
-            placeholder="Service"
-            onChange={handleChange}
-            value={formValues.service}
-          >
-            <option value="" selected disabled>
-              Select Service
-            </option>
-            {services.map((service) => (
-              <option key={service._id} value={service._id}>
-                {service.name}
-              </option>
-            ))}
-          </select>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-
+      {user && user.role === 'User' ? (
+        <div>
+          <h1 className="askDocTitle">Ask a Doctor</h1>
+          <div class="question-form-container">
+            <form onSubmit={handelSubmit}>
+              <input
+                type="text"
+                placeholder="Subject"
+                id="title"
+                onChange={handleChange}
+                value={formValues.title}
+              />
+              <input
+                type="text"
+                placeholder="Question"
+                id="content"
+                onChange={handleChange}
+                value={formValues.content}
+              />
+              <label htmlFor="service"></label>
+              <select
+                id="service"
+                className="addDocInput"
+                placeholder="Service"
+                onChange={handleChange}
+                value={formValues.service}
+              >
+                <option value="" selected disabled>
+                  Select Service
+                </option>
+                {services.map((service) => (
+                  <option key={service._id} value={service._id}>
+                    {service.name}
+                  </option>
+                ))}
+              </select>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      ) : null}
       <h1 className="allQuesTitle">All Questions</h1>
       <div className="allQustionSec">
-        {questions
+        {questions && questions.length > 0
           ? questions.map((question) => (
               <div key={question._id} className="question-container">
                 <span className="username">{question.user.name}</span>
@@ -138,7 +141,7 @@ const AskDoctor = ({ user }) => {
                 <p className="dateTime">{question.createdAt}</p>
               </div>
             ))
-          : null}
+          : 'No Questions'}
       </div>
     </div>
   )

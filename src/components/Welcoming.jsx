@@ -8,7 +8,7 @@ const Welcoming = ({ user }) => {
         <div className="welBtn">
           <h2>Welcome to G.A.H</h2>
 
-          <Link to={user.role ? 'book-an-appointment' : '/login'}>
+          <Link to={user._id ? '/book-an-appointment' : '/login'}>
             <button className="welAppBtn">
               <span>Book an Appointment</span>
             </button>

@@ -8,7 +8,7 @@ import Home from './pages/Home'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Appointment from './pages/Appointment'
@@ -26,6 +26,7 @@ import Review from './pages/Review'
 import Payment from './pages/Payment'
 import AskDoctor from './pages/AskDoctor'
 function App() {
+  let navigate = useNavigate()
   const [user, setUser] = useState({})
   const checkToken = async () => {
     const user = await CheckSesion()
@@ -43,6 +44,7 @@ function App() {
   const handleLogOut = () => {
     setUser({})
     localStorage.clear()
+    navigate('/')
   }
   return (
     <div>
@@ -56,7 +58,7 @@ function App() {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/book-an-appointment" element={<Appointment />} />
-          <Route path="/services/:id" element={<Service />} />
+          <Route path="/services/:id" element={<Service user={user} />} />
           <Route path="/services" element={<Services user={user} />} />
           <Route path="/doctors" element={<Doctors user={user} />} />
           {/* <Route path="/doctors/:doctorId" element={<DoctorDetails />} /> */}
