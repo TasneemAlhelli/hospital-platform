@@ -1,41 +1,45 @@
-import { useState } from "react"
-import { RegisterUser } from "../services/auth"
-import { useNavigate } from "react-router-dom"
+import { useState } from 'react'
+import { RegisterUser } from '../services/auth'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
   }
 
   const [formValues, setFormValues] = useState(initialState)
+  const [error, setError] = useState('')
   const options = [
-    "General Medicine",
-    "Pediatrics",
-    "Obstetrics and Gynecology",
-    "Urology",
-    "Dentistry",
-    "Dermatology",
-    "Cardiology",
-    "Orthopedics",
-    "Psychiatry",
-    "Physical Therapy",
-    "Occupational Therapy",
-    "Allergology",
-    "other",
+    'General Medicine',
+    'Pediatrics',
+    'Obstetrics and Gynecology',
+    'Urology',
+    'Dentistry',
+    'Dermatology',
+    'Cardiology',
+    'Orthopedics',
+    'Psychiatry',
+    'Physical Therapy',
+    'Occupational Therapy',
+    'Allergology',
+    'other'
   ]
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.id]: event.target.value })
   }
   const handelSubmit = async (event) => {
-    console.log(formValues)
     event.preventDefault()
-    await RegisterUser(formValues)
-    navigate("/")
+    const res = await RegisterUser(formValues)
+    if (res.status !== 200) {
+      setError(res.data)
+    } else {
+      navigate('/')
+    }
   }
   return (
     <div className="signUpSection">
@@ -50,6 +54,7 @@ const Register = () => {
             id="name"
             onChange={handleChange}
             value={formValues.name}
+            required
           />
           <input
             type="email"
@@ -58,6 +63,7 @@ const Register = () => {
             id="email"
             onChange={handleChange}
             value={formValues.email}
+            required
           />
           <input
             type="Number"
@@ -87,12 +93,14 @@ const Register = () => {
             id="birthDate"
             onChange={handleChange}
             value={formValues.birthDate}
+            required
           />
           <select
             id="medicalConditions"
             onChange={handleChange}
             value={formValues.medicalConditions}
             className="input"
+            required
           >
             <option selected disabled value="">
               Select Your Medical Conditions
@@ -110,6 +118,7 @@ const Register = () => {
             id="password"
             onChange={handleChange}
             value={formValues.password}
+            required
           />
           <input
             type="password"
@@ -118,7 +127,9 @@ const Register = () => {
             id="confirmPassword"
             onChange={handleChange}
             value={formValues.confirmPassword}
+            required
           />
+          {error ? <p className="error">{error}</p> : null}
           <button className="form-btn" type="submit">
             Create account
           </button>
