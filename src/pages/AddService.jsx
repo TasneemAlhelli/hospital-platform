@@ -1,114 +1,107 @@
-import { useState, useEffect } from "react"
-import { addService } from "../services/services"
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { addService } from '../services/services'
 
 const AddService = () => {
-  const options = [
-    "General Medicine",
-    "Pediatrics",
-    "Obstetrics and Gynecology",
-    "Urology",
-    "Dentistry",
-    "Dermatology",
-    "Cardiology",
-    "Orthopedics",
-    "Psychiatry",
-    "Physical Therapy",
-    "Occupational Therapy",
-    "Allergology",
-    "other",
-  ]
-  const [service, setService] = useState([])
+  let navigate = useNavigate()
+  const initialState = {
+    name: '',
+    image: '',
+    description: '',
+    phone: '',
+    price: '',
+    gender: '',
+    specialization: ''
+  }
+
+  const [service, setService] = useState(initialState)
 
   const handleChange = (event) => {
     setService({ ...service, [event.target.id]: event.target.value })
   }
 
-  const handelSubmit = (event) => {
+  const handelSubmit = async (event) => {
     event.preventDefault()
-    console.log("event", event)
-    console.log("service", service)
-    addService(service)
+    const addedService = await addService(service)
+    navigate(`/services`)
   }
+
   return (
     <div className="addServSection">
       <div className="addServForm-container">
-        <p class="addServTitle"> Add Service</p>
+        <p className="addServTitle"> Add Service</p>
         <div>
-          <form onSubmit={handelSubmit} class="addServForm">
-            <label htmlFor="name"></label>
+          <form onSubmit={handelSubmit} className="addServForm">
             <input
               id="name"
               type="text"
-              class="addServInput"
+              className="addServInput"
               placeholder="Name"
               onChange={handleChange}
               value={service.name}
+              required
             />
             <label htmlFor="image"></label>
             <input
               id="image"
               type="text"
-              class="addServInput"
+              className="addServInput"
               placeholder="Image"
               onChange={handleChange}
               value={service.image}
             />
-            <label htmlFor="description"></label>
             <input
               id="description"
               type="text"
-              class="addServInput"
+              className="addServInput"
               placeholder="Description"
               onChange={handleChange}
               value={service.description}
+              required
             />
-            <label htmlFor="phone"></label>
             <input
               id="phone"
               type="text"
-              class="addServInput"
+              className="addServInput"
               placeholder="Phone Number"
               onChange={handleChange}
               value={service.phone}
             />
-            <label htmlFor="price"></label>
             <input
               id="price"
               type="Number"
-              class="addServInput"
+              className="addServInput"
               placeholder="Price"
               onChange={handleChange}
               value={service.price}
+              required
             />
-            <label htmlFor="genderInterest"></label>
             <select
               onChange={handleChange}
               id="gender"
-              class="addServInput"
+              className="addServInput"
               value={service.genderInterest}
+              required
             >
               <option value="" selected disabled>
                 Select Gender
               </option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-              <option value="Both">Both</option>
+              <option value="All">All</option>
             </select>
-            <label htmlFor="specialization"></label>
-            <select
+            <input
               id="specialization"
-              class="addServInput"
+              type="text"
+              className="addServInput"
               placeholder="Specialization"
               onChange={handleChange}
               value={service.specialization}
-            >
-              {options.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <button type="submit" className="addServ-form-btn">Add Service</button>
+              required
+            />
+            <button type="submit" className="addServ-form-btn">
+              Add Service
+            </button>
           </form>
         </div>
       </div>
