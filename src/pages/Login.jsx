@@ -46,9 +46,6 @@ const Login = ({ setUser }) => {
             value={formValues.password}
             required
           />
-          <button onClick={togglePasswordVisibility}>
-            {showPassword ? 'Hide' : 'Show'} Password
-          </button>
         </div>
 
         <p className="page-link">
