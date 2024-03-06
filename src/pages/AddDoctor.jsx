@@ -1,12 +1,21 @@
-import { addDoctor } from "../services/doctors"
-import { getServices } from "../services/services"
-import { useState, useEffect } from "react"
+import { addDoctor } from '../services/doctors'
+import { getServices } from '../services/services'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const AddDoctor = () => {
+  let navigate = useNavigate()
   const initial = {
-    name: "",
-    email: "",
-    gender: "",
+    name: '',
+    image: '',
+    email: '',
+    experience: 0,
+    gender: '',
+    service: '',
+    schedule: {
+      start: '',
+      end: ''
+    }
   }
   const [doctor, setDoctor] = useState(initial)
   const [services, setServices] = useState([])
@@ -14,79 +23,75 @@ const AddDoctor = () => {
   useEffect(() => {
     const getAllServices = async () => {
       const { services } = await getServices()
-      console.log(services)
       setServices(services)
     }
     getAllServices()
   }, [])
 
   const handleChange = (event) => {
-    setDoctor({ ...doctor, [event.target.id]: event.target.value })
+    if (event.target.id === 'start' || event.target.id === 'end') {
+      setDoctor({
+        ...doctor,
+        ['schedule']: {
+          ...doctor['schedule'],
+          [event.target.id]: event.target.value
+        }
+      })
+    } else {
+      setDoctor({ ...doctor, [event.target.id]: event.target.value })
+    }
   }
 
-  const handelSubmit = (event) => {
+  const handelSubmit = async (event) => {
     event.preventDefault()
-    console.log("event", event)
 
-    addDoctor(doctor)
+    const addedDoctor = await addDoctor(doctor)
+    navigate(`/services/${addedDoctor.service}`)
   }
   return (
     <div className="addDocSection">
-      <div class="addDocForm-container">
-        <p class="addDocTitle"> Add a Doctor</p>
+      <div className="addDocForm-container">
+        <p className="addDocTitle"> Add a Doctor</p>
         <div>
-          <form onSubmit={handelSubmit} class="addDocForm">
-            <label htmlFor="name">
-              <input
-                id="name"
-                type="text"
-                class="addDocInput"
-                placeholder="Name"
-                onChange={handleChange}
-                value={doctor.name}
-              />
-            </label>
-
-            <label htmlFor="image"></label>
+          <form onSubmit={handelSubmit} className="addDocForm">
+            <input
+              id="name"
+              type="text"
+              className="addDocInput"
+              placeholder="Name"
+              onChange={handleChange}
+              value={doctor.name}
+              required
+            />
             <input
               id="image"
               type="text"
-              class="addDocInput"
+              className="addDocInput"
               placeholder="Image"
               onChange={handleChange}
               value={doctor.image}
             />
-            <label htmlFor="email"></label>
             <input
               id="email"
               type="email"
-              class="addDocInput"
+              className="addDocInput"
               placeholder="Email"
               onChange={handleChange}
               value={doctor.email}
+              required
             />
-            <label htmlFor="experience"></label>
             <input
               id="experience"
-              type="text"
-              class="addDocInput"
+              type="number"
+              className="addDocInput"
               placeholder="Experience"
               onChange={handleChange}
               value={doctor.experience}
             />
-            <label htmlFor="specialization"></label>
-            <input
-              id="specialization"
-              type="text"
-              class="addDocInput"
-              placeholder="Specialization"
-              onChange={handleChange}
-              value={doctor.specialization}
-            />
             <label htmlFor="gender"></label>
             <select
               id="gender"
-              class="addDocInput"
+              className="addDocInput"
               onChange={handleChange}
               value={doctor.gender}
             >
@@ -96,20 +101,18 @@ const AddDoctor = () => {
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
-
-            <label htmlFor="service"></label>
             <select
               id="service"
-              class="addDocInput"
+              className="addDocInput"
               placeholder="Service"
               onChange={handleChange}
               value={doctor.service}
             >
-              <option value="" selected disabled>
+              <option defaultValue="" value="" selected disabled>
                 Select Service
               </option>
-              {services.map((service, index) => (
-                <option key={index} value={service._id}>
+              {services.map((service) => (
+                <option key={service._id} value={service._id}>
                   {service.name}
                 </option>
               ))}
@@ -118,20 +121,17 @@ const AddDoctor = () => {
               <label htmlFor="schedule.start">Start Time:</label>
               <input
                 type="time"
-                id="schedule.start"
-                class="addDocInput"
+                id="start"
+                className="addDocInput"
                 placeholder="Start-Time"
-                //   value={doctor.schedule.start}
                 onChange={handleChange}
               />
-
               <label htmlFor="schedule.end">End Time:</label>
               <input
                 type="time"
-                id="schedule.end"
-                class="addDocInput"
+                id="end"
+                className="addDocInput"
                 placeholder="End-Time"
-                //   value={doctor.schedule.end}
                 onChange={handleChange}
               />
             </div>

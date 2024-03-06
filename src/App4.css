@@ -10,7 +10,7 @@
   transition-duration: 0.5s;
   color: #4c5a67;
   font-size: 16px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .profilePosition {
@@ -24,7 +24,7 @@
 .profileTitle {
   color: #0a987b;
   padding-bottom: 20px;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 .profileBtn {
@@ -32,7 +32,7 @@
   border: 1px solid rgb(209, 213, 219);
   border-radius: 0.5rem;
   color: #0a987b;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -61,7 +61,7 @@
   color: #0a987b;
   padding-bottom: 20px;
   text-align: center;
-  font-family: "Lucida Sans", sans-serif;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 /* .banner {
@@ -116,7 +116,7 @@ label {
   padding: 5px 14px;
 }
 
-.btn-color-mode-switch input[type="checkbox"] {
+.btn-color-mode-switch input[type='checkbox'] {
   cursor: pointer;
   width: 50px;
   height: 25px;
@@ -128,14 +128,14 @@ label {
 }
 
 .btn-color-mode-switch
-  input[type="checkbox"]:checked
+  input[type='checkbox']:checked
   + label.btn-color-mode-switch-inner {
   background: #e0e0e0;
   color: #424242;
 }
 
 .btn-color-mode-switch
-  input[type="checkbox"]:checked
+  input[type='checkbox']:checked
   + label.btn-color-mode-switch-inner:after {
   content: attr(data-on);
   left: 90px;
@@ -143,14 +143,14 @@ label {
 }
 
 .btn-color-mode-switch
-  input[type="checkbox"]:checked
+  input[type='checkbox']:checked
   + label.btn-color-mode-switch-inner:before {
   content: attr(data-off);
   right: auto;
   left: 20px;
 }
 
-.btn-color-mode-switch input[type="checkbox"]:checked ~ .alert {
+.btn-color-mode-switch input[type='checkbox']:checked ~ .alert {
   display: block;
 }
 
