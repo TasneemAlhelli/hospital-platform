@@ -23,7 +23,11 @@ const Services = ({ user }) => {
       )}
       <section className="servSection">
         {services.map((service) => (
-          <Link key={service._id} to={service._id}>
+          <Link
+            key={service._id}
+            to={service._id}
+            style={{ color: 'inherit', textDecoration: 'inherit' }}
+          >
             <div className="servCard">
               <div className="servProfileImage">
                 <img src={service.image} alt={service.name} />
