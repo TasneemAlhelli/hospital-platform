@@ -1,13 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { LoginUser } from '../services/auth'
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { LoginUser } from "../services/auth"
 
 const Login = ({ setUser }) => {
   let navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [formValues, setFormValues] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   })
   const [error, setError] = useState('')
   const togglePasswordVisibility = () => {
@@ -43,7 +43,7 @@ const Login = ({ setUser }) => {
           />
           <input
             id="password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             className="input"
             placeholder="Password"
             onChange={handleChange}
@@ -65,7 +65,7 @@ const Login = ({ setUser }) => {
         <p className="sign-up-label">
           <Link
             to="/register"
-            style={{ color: 'inherit', textDecoration: 'inherit' }}
+            style={{ color: "inherit", textDecoration: "inherit" }}
           >
             Don't have an account?<span className="sign-up-link">Sign up</span>
           </Link>
