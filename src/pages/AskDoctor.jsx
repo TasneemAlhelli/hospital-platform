@@ -1,5 +1,6 @@
 import { getServices } from "../services/services"
 import { useState, useEffect } from "react"
+import moment from "moment"
 import {
   createQuestion,
   getAllQuestion,
@@ -127,7 +128,7 @@ const AskDoctor = () => {
                     </form>
                   )}
                 </section>
-                <p className="dateTime">{question.createdAt}</p>
+                <p className="dateTime">{moment(question.createdAt).format('MMMM Do YYYY, h:mm:ss a')}</p>
               </div>
             ))
           : null}
