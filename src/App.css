@@ -408,3 +408,7 @@ h2 {
   color: gold;
   margin-right: 5px;
 }
+
+.error {
+  color: red;
+}
