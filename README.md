@@ -44,21 +44,30 @@ npm run dev
 
 Users can register by adding their personal and medical information, creating a profile for personalized healthcare interactions.
 
+![Image](https://i.ibb.co/xMgDxmj/Screenshot-2024-03-07-at-8-43-58-AM.png)
+![Image](https://i.ibb.co/mtCQty4/Screenshot-2024-03-07-at-8-44-14-AM.png)
+
 ### Services and Doctors
 
 Browse a comprehensive list of medical services and associated doctors, with detailed information for each service and doctor.
+![Image](https://i.ibb.co/2vndy0t/Screenshot-2024-03-07-at-8-44-51-AM.png)
+![Image](https://i.ibb.co/N21trGF/Screenshot-2024-03-07-at-8-45-08-AM.png)
 
 ### Book Appointment
 
 Schedule appointments with doctors based on availability, ensuring convenient access to healthcare services.
 
+![Image](https://i.ibb.co/BPRYSHC/Screenshot-2024-03-07-at-8-46-01-AM.png)
+
 ## Leave Review
 
 Share feedback about doctors and services, helping other users make informed decisions.
+![Image](https://i.ibb.co/41MsQCF/Screenshot-2024-03-07-at-8-46-21-AM.png)
 
 ## Ask Doctor
 
 Users can ask medical questions in a dedicated section, with responses provided by expert administrators.
+![Image](https://i.ibb.co/rv7tNGw/Screenshot-2024-03-07-at-8-46-49-AM.png)
 
 Tasneem Ali - [LinkedIn](https://www.linkedin.com/in/tasneem-jameel-ali/) | tasneem.jameel9@gmail.com
 
