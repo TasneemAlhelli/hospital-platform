@@ -50,6 +50,7 @@ Users can register by adding their personal and medical information, creating a 
 ### Services and Doctors
 
 Browse a comprehensive list of medical services and associated doctors, with detailed information for each service and doctor.
+
 ![Image](https://i.ibb.co/2vndy0t/Screenshot-2024-03-07-at-8-44-51-AM.png)
 ![Image](https://i.ibb.co/N21trGF/Screenshot-2024-03-07-at-8-45-08-AM.png)
 
